@@ -2,14 +2,13 @@
 
 long account::nextAccountNumber = 0;
 
-account::account(string fname, string lname, string email, float accBalance)
+account::account(string fname, string lname, string email, float accBalance) 
+	: firstName(fname), 
+	  lastName(lname),
+	  email(email),
+	  accountBalance(accBalance),
+	  accountNumber(++nextAccountNumber)
 {
-    firstName = fname;
-    lastName = lname;
-    this -> email = email;
-    accountBalance = accBalance;
-    nextAccountNumber++;
-    accountNumber = nextAccountNumber;
 }
 
 void account::deposit(float amount)
