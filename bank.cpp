@@ -2,7 +2,7 @@
 
 bank::bank()
 {
-    account acc;
+    account acc{};
 
     ifstream infile;
     infile.open("bank.data");

@@ -28,7 +28,7 @@ private:
     string email;
     static long nextAccountNumber;
 public:
-    account () {}
+    account () = default;
     account (string fname, string lname, string email, float accBalance);
     string getFirstName() {return firstName;}
     string getLastName() {return lastName;}

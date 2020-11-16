@@ -2,13 +2,13 @@
 
 int main()
 {
-    string fname;
-    string lname;
-    string email;
-    float amount;
-    float initialAmount;
-    long accNumber;
-    int option;
+    string fname{};
+    string lname{};
+    string email{};
+    float amount{};
+    float initialAmount{};
+    long accNumber{};
+    int option{};
 
     account acc;
     bank gcb;
