@@ -1,6 +1,6 @@
 #include "account.h"
 
-long account::nextAccountNumber = 0.00;
+long account::nextAccountNumber = 0;
 
 account::account(string fname, string lname, string email, float accBalance)
 {
