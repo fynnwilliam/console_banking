@@ -11,6 +11,8 @@ public:
     account makeDeposit(long accountNumber, float amount);
     account withdrawal(long accountNumber, float amount);
     void closeAccount(long accountNumber);
+    void updateBankData(map<long, account> activeAccounts);
+    void loadBankData();
     void showAccounts();
     ~bank();
 };

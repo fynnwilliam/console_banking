@@ -14,6 +14,6 @@ or
 `g++ -w *.cpp -o banking`
   
 
-then run the program by typing ./banking
+then run the program by typing `./banking`
 
 thank you...

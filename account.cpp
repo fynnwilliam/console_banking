@@ -2,12 +2,12 @@
 
 long account::nextAccountNumber = 0;
 
-account::account(string fname, string lname, string email, float accBalance) 
-	: firstName(fname), 
-	  lastName(lname),
-	  email(email),
-	  accountBalance(accBalance),
-	  accountNumber(++nextAccountNumber)
+account::account(string fname, string lname, string email, float accBalance)
+    : firstName(fname),
+      lastName(lname),
+      email(email),
+      accountBalance(accBalance),
+      accountNumber(++nextAccountNumber)
 {
 }
 
@@ -18,8 +18,10 @@ void account::deposit(float amount)
 
 void account::withdraw(float amount)
 {
-    if (accountBalance < 1000)
-        throw insufficientFunds();
+    if (accountBalance <= 1000)
+        { throw out_of_range("you have only a minimum balance"); }
+    if (amount > accountBalance - 1000)
+        { throw invalid_argument("you are trying to pull more than you have"); }
     accountBalance -= amount;
 }
 
@@ -33,7 +35,7 @@ long account::getLastAccountNumber()
     return nextAccountNumber;
 }
 
-ofstream& operator << (ofstream& outfile, account& acc)
+ofstream &operator<<(ofstream &outfile, account &acc)
 {
     outfile << acc.accountNumber << "\n"
             << acc.firstName << "\n"
@@ -44,18 +46,14 @@ ofstream& operator << (ofstream& outfile, account& acc)
     return outfile;
 }
 
-ifstream& operator >> (ifstream& infile, account& acc)
+ifstream &operator>>(ifstream &infile, account &acc)
 {
-    infile >> acc.accountNumber
-           >> acc.firstName
-           >> acc.lastName
-           >> acc.email
-           >> acc.accountNumber;
+    infile >> acc.accountNumber >> acc.firstName >> acc.lastName >> acc.email >> acc.accountNumber;
 
     return infile;
 }
 
-ostream& operator << (ostream& display, account& acc)
+ostream &operator<<(ostream &display, account &acc)
 {
     display << "\n\tfirst name: " << acc.getFirstName() << "\n"
             << "\tlast name: " << acc.getLastName() << "\n"
@@ -68,5 +66,4 @@ ostream& operator << (ostream& display, account& acc)
 
 account::~account()
 {
-
 }
