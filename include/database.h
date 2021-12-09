@@ -1,3 +1,4 @@
+#include <unordered_map>
 
 class database
 {
@@ -15,4 +16,7 @@ public:
     
     auto insert(unsigned, account) noexcept;
     void write_to_file() const noexcept;
+    std::optional<account&> find(unsigned) noexcept;
+    std::optional<account const&> find(unsigned) const noexcept;
+    void erase(unsigned) noexcept;
 };
