@@ -2,9 +2,9 @@
 
 int main()
 {
-    string fname{};
-    string lname{};
-    string email{};
+    std::string fname{};
+    std::string lname{};
+    std::string email{};
     float amount{};
     float initialAmount{};
     long accNumber{};
@@ -13,79 +13,79 @@ int main()
     account acc{};
     bank gcb{};
 
-    cout << "welcome to console banking! :)\n\n";
+    std::cout << "welcome to console banking! :)\n\n";
 
     do
     {
-        cout << "\n"
-             << "\t1. open an account\n"
-             << "\t2. balance enquiry\n"
-             << "\t3. deposit\n"
-             << "\t4. withdrawal\n"
-             << "\t5. close an account\n"
-             << "\t6. show accounts\n"
-             << "\t7. exit\n"
-             << "\nselect an option: ";
+        std::cout << "\n"
+                 << "\t1. open an account\n"
+                 << "\t2. balance enquiry\n"
+                 << "\t3. deposit\n"
+                 << "\t4. withdrawal\n"
+                 << "\t5. close an account\n"
+                 << "\t6. show accounts\n"
+                 << "\t7. exit\n"
+                 << "\nselect an option: ";
 
-        cin >> option;
+        std::cin >> option;
 
         switch (option)
         {
         case 1:
-            cout << "enter first name: ";
-            cin >> fname;
-            cout << "enter last name: ";
-            cin >> lname;
-            cout << "enter email address: ";
-            cin >> email;
-            cout << "enter initial amount: ";
-            cin >> initialAmount;
+            std::cout << "enter first name: ";
+            std::cin >> fname;
+            std::cout << "enter last name: ";
+            std::cin >> lname;
+            std::cout << "enter email address: ";
+            std::cin >> email;
+            std::cout << "enter initial amount: ";
+            std::cin >> initialAmount;
 
             acc = gcb.openAccount(fname, lname, email, initialAmount);
 
-            cout << acc
-                 << "\naccount created successfully.\n";
+            std::cout << acc
+                      << "\naccount created successfully.\n";
             break;
         case 2:
-            cout << "enter account number: ";
-            cin >> accNumber;
+            std::cout << "enter account number: ";
+            std::cin >> accNumber;
 
             acc = gcb.balanceEnquiry(accNumber);
 
-            cout << "\nplease find current balance below...\n\n"
-                 << acc;
+            std::cout << "\nplease find current balance below...\n\n"
+                      << acc;
             break;
         case 3:
-            cout << "enter account number: ";
-            cin >> accNumber;
-            cout << "enter amount to deposit: ";
-            cin >> amount;
+            std::cout << "enter account number: ";
+            std::cin >> accNumber;
+            std::cout << "enter amount to deposit: ";
+            std::cin >> amount;
 
             acc = gcb.makeDeposit(accNumber, amount);
 
-            cout << "\ndeposit complete.\nfind current details below...\n\n"
-                 << acc;
+            std::cout << "\ndeposit complete.\nfind current details below...\n\n"
+                      << acc;
             break;
         case 4:
-            cout << "enter account number: ";
-            cin >> accNumber;
-            cout << "enter amount to withdraw: ";
-            cin >> amount;
+            std::cout << "enter account number: ";
+            std::cin >> accNumber;
+            std::cout << "enter amount to withdraw: ";
+            std::cin >> amount;
 
             try { acc = gcb.withdrawal(accNumber, amount); }
-            catch (const exception& e) { std::cerr << '\n' << e.what() << '\n'; break;}            
+            catch (const std::exception& e) { std::cerr << '\n' << e.what() << '\n'; break;}            
 
-            cout << "\nwithdrawal complete.\nfind current details below...\n\n"
-                 << acc;
+            std::cout << "\nwithdrawal complete.\nfind current details below...\n\n"
+                      << acc;
             break;
         case 5:
-            cout << "enter account number to be closed: ";
-            cin >> accNumber;
+            std::cout << "enter account number to be closed: ";
+            std::cin  >> accNumber;
 
             gcb.closeAccount(accNumber);
 
-            cout << "account deleted.\n"
-                 << acc;
+            std::cout << "account deleted.\n"
+                      << acc;
             break;
         case 6:
             gcb.showAccounts();
@@ -93,7 +93,7 @@ int main()
         case 7:
             break;
         default:
-            cout << "\nselect any of options 1 through 7\n";
+            std::cout << "\nselect any of options 1 through 7\n";
             exit(0);
         }
     } while (option != 7);

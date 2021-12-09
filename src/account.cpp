@@ -2,7 +2,7 @@
 
 long account::nextAccountNumber = 0;
 
-account::account(string fname, string lname, string email, float accBalance)
+account::account(std::string fname, std::string lname, std::string email, float accBalance)
     : firstName(fname),
       lastName(lname),
       email(email),
@@ -19,9 +19,9 @@ void account::deposit(float amount)
 void account::withdraw(float amount)
 {
     if (accountBalance <= 1000)
-        { throw out_of_range("you have only a minimum balance"); }
+        { throw std::out_of_range("you have only a minimum balance"); }
     if (amount > accountBalance - 1000)
-        { throw invalid_argument("you are trying to pull more than you have"); }
+        { throw std::invalid_argument("you are trying to pull more than you have"); }
     accountBalance -= amount;
 }
 
@@ -35,7 +35,7 @@ long account::getLastAccountNumber()
     return nextAccountNumber;
 }
 
-ofstream &operator<<(ofstream &outfile, account &acc)
+std::ofstream &operator<<(std::ofstream &outfile, account &acc)
 {
     outfile << acc.accountNumber << "\n"
             << acc.firstName << "\n"
@@ -46,14 +46,14 @@ ofstream &operator<<(ofstream &outfile, account &acc)
     return outfile;
 }
 
-ifstream &operator>>(ifstream &infile, account &acc)
+std::ifstream &operator>>(std::ifstream &infile, account &acc)
 {
     infile >> acc.accountNumber >> acc.firstName >> acc.lastName >> acc.email >> acc.accountNumber;
 
     return infile;
 }
 
-ostream &operator<<(ostream &display, account &acc)
+std::ostream &operator<<(std::ostream &display, account &acc)
 {
     display << "\n\tfirst name: " << acc.getFirstName() << "\n"
             << "\tlast name: " << acc.getLastName() << "\n"
