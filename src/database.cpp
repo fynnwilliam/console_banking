@@ -28,3 +28,23 @@ void database::erase(unsigned id) noexcept
 {
     db_.erase(id);
 }
+
+auto database::begin() const noexcept
+{
+    return db_.begin();
+}
+
+auto database::cbegin() const noexcept
+{
+    return db_.cbegin();
+}
+
+auto database::end() const noexcept
+{
+    return db_.end();
+}
+
+auto database::cend() const noexcept
+{
+    return db_.cend();
+}
