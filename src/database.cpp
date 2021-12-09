@@ -48,3 +48,8 @@ auto database::cend() const noexcept
 {
     return db_.cend();
 }
+
+bool database::empty() const noexcept
+{
+    return db_.empty();
+}
