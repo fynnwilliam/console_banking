@@ -1,4 +1,5 @@
 #include "database.h"
+#include <functional>
 
 auto database::insert(unsigned id, account acc) noexcept
 {
