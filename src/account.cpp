@@ -14,9 +14,14 @@ void account::deposit(float amount)
     accountBalance += amount;
 }
 
-std::string const& first_name() const noexcept
+std::string const& account::first_name() const noexcept
 {
     return first_name_;
+}
+
+std::string const& account::last_name() const noexcept
+{
+    return last_name_;
 }
 
 unsigned account::id() const noexcept

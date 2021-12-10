@@ -16,7 +16,7 @@ public:
     account() = default;
     account(std::string fname, std::string lname, std::string email, float accBalance);
     std::string const& first_name() const noexcept;
-    std::string getLastName() { return lastName; }
+    std::string const& last_name () const noexcept;
     std::string getEmail() { return email; }
     unsigned id() const noexcept;
     double balance() const noexcept;
