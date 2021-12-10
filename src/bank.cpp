@@ -43,17 +43,11 @@ void bank::close_account(unsigned id) noexcept
         std::cout << "account not found\n";
 }
 
-void bank::showAccounts()
+void bank::list_accounts() const noexcept
 {
-    int count = 1;
-    std::map<long, account>::iterator itr;
-    for (itr = accounts.begin(); itr != accounts.end(); itr++)
-    {
-        std::cout << count << ":\n"
-                  << itr->second
-                  << std::endl;
-        count++;
-    }
+    std::size_t count{};
+    for (auto const& [_, acc] : accounts_)
+        std::cout << ++count << '\n' << acc << '\n';
 }
 
 bank::~bank()
