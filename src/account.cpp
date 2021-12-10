@@ -5,11 +5,6 @@ account::account(std::string const& f, std::string const& l)
 {
 }
 
-void account::deposit(float amount)
-{
-    accountBalance += amount;
-}
-
 std::string const& account::first_name() const noexcept
 {
     return first_name_;
@@ -38,6 +33,11 @@ unsigned account::id() const noexcept
 double account::balance() const noexcept
 {
     return balance_;
+}
+
+void account::deposit(double amount)
+{
+    if (amount > 0.0) balance_ += amount;
 }
 
 void account::withdraw(float amount)
