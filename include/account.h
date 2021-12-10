@@ -15,14 +15,14 @@ private:
 public:
     account() = default;
     account(std::string fname, std::string lname, std::string email, float accBalance);
-    std::string getFirstName() { return firstName; }
+    std::string const& first_name() const noexcept;
     std::string getLastName() { return lastName; }
     std::string getEmail() { return email; }
     unsigned id() const noexcept;
     double balance() const noexcept;
     
-    void deposit(float amount);
-    void withdraw(float amount);
+    void deposit(double) noexcept;
+    void withdraw(double) noexcept;
     friend std::ofstream &operator<<(std::ofstream &outfile, account &acc);
     friend std::ifstream &operator>>(std::ifstream &infile, account &acc);
     friend std::ostream &operator<<(std::ostream &display, account &acc);
