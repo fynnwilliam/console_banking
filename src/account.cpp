@@ -50,11 +50,11 @@ void account::withdraw(float amount)
 
 std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
 {
-    return ofs << acc.id()         << "\n"
-               << acc.first_name() << "\n"
-               << acc.last_name()  << "\n"
-               << acc.email()      << "\n"
-               << acc.balance()    << "\n";
+    return ofs << acc.id()         << '\n'
+               << acc.first_name() << '\n'
+               << acc.last_name()  << '\n'
+               << acc.email()      << '\n'
+               << acc.balance()    << '\n';
 }
 
 std::ifstream& operator>>(std::ifstream& ifs, account& acc)
@@ -66,13 +66,12 @@ std::ifstream& operator>>(std::ifstream& ifs, account& acc)
                >> acc.balance_;
 }
 
-std::ostream &operator<<(std::ostream &display, account &acc)
+std::ostream& operator<<(std::ostream& os, account const& acc)
 {
-    display << "\n\tfirst name: " << acc.getFirstName() << "\n"
-            << "\tlast name: " << acc.getLastName() << "\n"
-            << "\temail: " << acc.getEmail() << "\n"
-            << "\taccount number: " << acc.getAccountNumber() << "\n"
-            << "\taccount balance: " << acc.getAccountBalance() << "\n";
-
-    return display;
+    return os << "\n\taccount id: " << acc.id()
+              << "\n\tlast  name: " << acc.last_name()
+              << "\n\tfirst name: " << acc.first_name()
+              << "\n\temail: "      << acc.email()
+              << "\n\tbalance: "    << acc.balance()
+              << '\n';
 }

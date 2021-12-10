@@ -27,5 +27,5 @@ public:
     
     friend std::ofstream& operator<<(std::ofstream&, account const&);
     friend std::ifstream& operator>>(std::ifstream&, account&);
-    friend std::ostream&  operator<<(std::ostream&  display, account const& acc);
+    friend std::ostream&  operator<<(std::ostream& , account const&);
 };
