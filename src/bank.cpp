@@ -25,11 +25,14 @@ void bank::deposit(long accountNumber, double amount) noexcept
         std::cout << "account not found\n";
 }
 
-account bank::withdrawal(long accountNumber, float amount)
+void bank::withdraw(unsigned id, double amount) noexcept
 {
-    std::map<long, account>::iterator itr = accounts.find(accountNumber);
-    itr->second.withdraw(amount);
-    return itr->second;
+    if (amount < 0)
+        std::cout << "cannot withdraw negative values\n";
+    else if (auto& acc = accounts_.find(id))
+        acc->withdraw(amount);
+    else
+        std::cout << "account not found\n";
 }
 
 void bank::closeAccount(long accountNumber)
