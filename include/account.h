@@ -3,11 +3,14 @@
 #include <fstream>
 #include <string>
 
+#include "account_t.h"
+
 class account
 {
 private:
     unsigned id_;
     double balance_;
+    account_t  type_;
     std::string email_;
     std::string last_name_;
     std::string first_name_;
@@ -19,8 +22,9 @@ public:
     std::string const& first_name() const noexcept;
     std::string const&  last_name() const noexcept;
     std::string const&      email() const noexcept;
-    unsigned    id() const noexcept;
-    double balance() const noexcept;
+    account_t                type() const noexcept;
+    unsigned                   id() const noexcept;
+    double                balance() const noexcept;
     
     void  deposit(double) noexcept;
     void withdraw(double) noexcept;

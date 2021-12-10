@@ -29,6 +29,11 @@ std::string const& account::email() const noexcept
     return email_;
 }
 
+account_t account::type() const noexcept
+{
+    return type_;
+}
+
 unsigned account::id() const noexcept
 {
     return id_;
