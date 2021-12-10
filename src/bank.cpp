@@ -13,6 +13,20 @@ auto bank::open_account(account_builder& builder) noexcept
                          : std::nullopt;
 }
 
+unsigned bank::new_id() const noexcept
+{
+    static unsigned id{_new_id()};
+    return ++id;
+}
+
+unsigned bank::_new_id() const noexcept
+{
+    auto a{accounts_.begin()->id()};
+    auto b{(accounts_.end() - 1)->id()};
+    
+    return std::max(a, b);
+}
+
 void bank::check_balance(unsigned id) const noexcept
 {
     std::cout << accounts_.find(id).value_or("account not found\n");
