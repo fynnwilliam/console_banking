@@ -68,3 +68,8 @@ bool database::empty() const noexcept
 {
     return db_.empty();
 }
+
+database::~database()
+{
+    if (!empty()) write_to_file();
+}

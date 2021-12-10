@@ -31,4 +31,5 @@ public:
     auto    end()            const noexcept;
     auto   cend()            const noexcept;
     bool  empty()            const noexcept;
+      ~database();
 };
