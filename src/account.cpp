@@ -14,6 +14,12 @@ void account::deposit(float amount)
     accountBalance += amount;
 }
 
+
+unsigned account::id() const noexcept
+{
+    return id_;
+}
+
 void account::withdraw(float amount)
 {
     if (accountBalance <= 1000)

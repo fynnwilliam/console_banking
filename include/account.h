@@ -18,7 +18,7 @@ public:
     std::string getFirstName() { return firstName; }
     std::string getLastName() { return lastName; }
     std::string getEmail() { return email; }
-    long getAccountNumber() { return accountNumber; }
+    unsigned id() const noexcept;
     float getAccountBalance() { return accountBalance; }
 
     void deposit(float amount);
