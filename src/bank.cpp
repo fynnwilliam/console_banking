@@ -1,10 +1,5 @@
 #include "bank.h"
 
-bank::bank()
-{
-    loadBankData();
-}
-
 account bank::openAccount(std::string fname, std::string lname, std::string email, float accBalance)
 {
     account acc(fname, lname, email, accBalance);

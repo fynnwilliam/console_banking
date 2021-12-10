@@ -9,7 +9,7 @@ private:
     database& accounts_;
 
 public:
-    bank();
+    bank(database& db) : accounts{db} {}
     account openAccount(std::string fname, std::string lname, std::string email, float accBalance);
     account balanceEnquiry(long accountNumber);
     account makeDeposit(long accountNumber, float amount);
