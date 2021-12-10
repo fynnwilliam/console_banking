@@ -14,6 +14,13 @@ private:
     std::string email_;
     std::string last_name_;
     std::string first_name_;
+    
+    void first_name(std::string const&) noexcept;
+    void  last_name(std::string const&) noexcept;
+    void      email(std::string const&) noexcept;
+    void                type(account_t) noexcept;
+    void                   id(unsigned) noexcept;
+    void                balance(double) noexcept;
 
 public:
     account() = default;

@@ -5,6 +5,36 @@ account::account(std::string const& f, std::string const& l)
 {
 }
 
+void account::first_name(std::string const& f) noexcept
+{
+    first_name_ = std::move(f);
+}
+
+void account::last_name(std::string const& l) noexcept
+{
+    last_name_ = std::move(l);
+}
+
+void account::email(std::string const& address) noexcept
+{
+    email_ = std::move(address);
+}
+
+void account::type(account_t t) noexcept
+{
+    type_ = t;
+}
+
+void account::id(unsigned id) noexcept
+{
+    id_ = id;
+}
+
+void account::balance(double b) noexcept
+{
+    balance_ = b;
+}
+
 std::string const& account::first_name() const noexcept
 {
     return first_name_;
