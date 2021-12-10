@@ -15,8 +15,6 @@ public:
     void deposit(unsigned id, double amount) noexcept;
     void withdraw(unsigned id, double amount) noexcept;
     void close_account(unsigned id) noexcept;
-    void updateBankData(std::map<long, account> activeAccounts);
-    void loadBankData();
     void showAccounts();
     ~bank();
 };

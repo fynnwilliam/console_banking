@@ -43,41 +43,6 @@ void bank::close_account(unsigned id) noexcept
         std::cout << "account not found\n";
 }
 
-void bank::updateBankData(std::map<long, account> activeAccounts)
-{
-    std::ofstream outfile("bank.data", std::ios::trunc);
-    for (auto x : activeAccounts)
-    {
-        outfile << x.second;
-    }
-    outfile.close();
-}
-
-void bank::loadBankData()
-{
-    account acc{};
-
-    std::ifstream infile;
-    infile.open("bank.data");
-
-    if (!infile.is_open())
-    {
-        std::cout << "unable to open 'bank.data', file may not exist." << std::endl;
-    }
-    else
-    {
-        while (!infile.eof())
-        {
-            infile >> acc;
-            accounts.insert({acc.getAccountNumber(), acc});
-        }
-    }
-    
-    account::setLastAccountNumber(acc.getAccountNumber());
-
-    infile.close();
-}
-
 void bank::showAccounts()
 {
     int count = 1;
