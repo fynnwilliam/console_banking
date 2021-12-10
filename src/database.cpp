@@ -1,31 +1,31 @@
-#include <database.h>
-
-#include <optional>
+#include "database.h"
 
 auto database::insert(unsigned id, account acc) noexcept
 {
+    std::scoped_lock{mtx_};
     return db_.insert({id, acc});
 }
 
 void database::write_to_file() const noexcept
 {
-    std::ofstream file{"data", std::ios::truc};
+    std::ofstream file{"data", std::ios::trunc};
     for (auto& [id, acc] : db_)
         file << acc;
 }
 
-std::optional<account&> database::find(unsigned id) noexcept
+std::optional<account> database::find(unsigned id) noexcept
 {
-    return db_.count(id) ? {db_[id]} : std::nullopt;
+    return db_.count(id) ? std::optional{db_[id]} : std::nullopt;
 }
 
-std::optional<account const&> database::find(unsigned id) const noexcept
+std::optional<account> database::find(unsigned id) const noexcept
 {
-    return db_.count(id) ? {db_.at(id)} : std::nullopt;
+    return db_.count(id) ? std::optional{db_.at(id)} : std::nullopt;
 }
 
 void database::erase(unsigned id) noexcept
 {
+    std::scoped_lock{mtx_};
     db_.erase(id);
 }
 
