@@ -20,6 +20,11 @@ unsigned account::id() const noexcept
     return id_;
 }
 
+double account::balance() const noexcept
+{
+    return balance_;
+}
+
 void account::withdraw(float amount)
 {
     if (accountBalance <= 1000)

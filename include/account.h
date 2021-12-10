@@ -19,8 +19,8 @@ public:
     std::string getLastName() { return lastName; }
     std::string getEmail() { return email; }
     unsigned id() const noexcept;
-    float getAccountBalance() { return accountBalance; }
-
+    double balance() const noexcept;
+    
     void deposit(float amount);
     void withdraw(float amount);
     friend std::ofstream &operator<<(std::ofstream &outfile, account &acc);
