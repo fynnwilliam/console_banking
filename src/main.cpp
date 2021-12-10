@@ -88,7 +88,7 @@ int main()
                       << acc;
             break;
         case 6:
-            gcb.showAccounts();
+            gcb.list_accounts();
             break;
         case 7:
             std::cout << "\nthank you, for banking with us" << std::endl;
