@@ -10,10 +10,11 @@ private:
 
 public:
     bank(database& db) : accounts_{db} {}
-    account openAccount(std::string fname, std::string lname, std::string email, float accBalance);
-    void check_balance(unsigned id) const noexcept;
-    void deposit(unsigned id, double amount) noexcept;
-    void withdraw(unsigned id, double amount) noexcept;
-    void close_account(unsigned id) noexcept;
-    void list_accounts() const noexcept;
+    
+    auto open_account(account_builder&)           noexcept;
+    void check_balance(unsigned id)         const noexcept;
+    void deposit(unsigned id, double amount)      noexcept;
+    void withdraw(unsigned id, double amount)     noexcept;
+    void close_account(unsigned id)               noexcept;
+    void list_accounts()                    const noexcept;
 };
