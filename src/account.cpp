@@ -37,16 +37,15 @@ double account::balance() const noexcept
 
 void account::deposit(double amount)
 {
-    if (amount > 0.0) balance_ += amount;
+    if (amount > 0) balance_ += amount;
 }
 
-void account::withdraw(float amount)
+void account::withdraw(double amount)
 {
-    if (accountBalance <= 1000)
-        { throw std::out_of_range("you have only a minimum balance"); }
-    if (amount > accountBalance - 1000)
-        { throw std::invalid_argument("you are trying to pull more than you have"); }
-    accountBalance -= amount;
+    if (amount < balance_ - 100)
+        balance_ -= amount;
+    else
+        std::cout << "could not perform withdraw - insuficient funds\n";
 }
 
 std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
