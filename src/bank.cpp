@@ -49,15 +49,3 @@ void bank::list_accounts() const noexcept
     for (auto const& [_, acc] : accounts_)
         std::cout << ++count << '\n' << acc << '\n';
 }
-
-bank::~bank()
-{
-    if (accounts.empty())
-    {
-        std::cout << "no account created yet." << std::endl;
-    }
-    else
-    {
-        updateBankData(accounts);
-    }
-}

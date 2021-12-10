@@ -16,5 +16,4 @@ public:
     void withdraw(unsigned id, double amount) noexcept;
     void close_account(unsigned id) noexcept;
     void list_accounts() const noexcept;
-    ~bank();
 };
