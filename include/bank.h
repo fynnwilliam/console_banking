@@ -1,12 +1,13 @@
 #pragma once
-#include <map>
 
+#include "database.h"
 #include "account.h"
 
 class bank
 {
 private:
-    std::map<long, account> accounts;
+    database& accounts_;
+
 public:
     bank();
     account openAccount(std::string fname, std::string lname, std::string email, float accBalance);
