@@ -6,11 +6,11 @@
 class account
 {
 private:
-    long accountNumber;
-    float accountBalance;
-    std::string firstName;
-    std::string lastName;
-    std::string email;
+    unsigned id_;
+    double balance_;
+    std::string email_;
+    std::string last_name_;
+    std::string first_name_;
 
 public:
     account() = default;
