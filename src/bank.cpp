@@ -35,11 +35,12 @@ void bank::withdraw(unsigned id, double amount) noexcept
         std::cout << "account not found\n";
 }
 
-void bank::closeAccount(long accountNumber)
+void bank::close_account(unsigned id) noexcept
 {
-    std::map<long, account>::iterator itr = accounts.find(accountNumber);
-    std::cout << "deleting account " << itr->second.getAccountNumber() << "...\n";
-    accounts.erase(accountNumber);
+    if (accounts_.find(id))
+        accounts_.erase(id);
+    else
+        std::cout << "account not found\n";
 }
 
 void bank::updateBankData(std::map<long, account> activeAccounts)
