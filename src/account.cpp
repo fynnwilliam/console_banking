@@ -48,15 +48,13 @@ void account::withdraw(float amount)
     accountBalance -= amount;
 }
 
-std::ofstream &operator<<(std::ofstream &outfile, account &acc)
+std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
 {
-    outfile << acc.accountNumber << "\n"
-            << acc.firstName << "\n"
-            << acc.lastName << "\n"
-            << acc.email << "\n"
-            << acc.accountBalance << "\n";
-
-    return outfile;
+    return ofs << acc.id()         << "\n"
+               << acc.first_name() << "\n"
+               << acc.last_name()  << "\n"
+               << acc.email()      << "\n"
+               << acc.balance()    << "\n";
 }
 
 std::ifstream &operator>>(std::ifstream &infile, account &acc)
