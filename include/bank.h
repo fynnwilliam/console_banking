@@ -12,7 +12,7 @@ public:
     bank(database& db) : accounts_{db} {}
     account openAccount(std::string fname, std::string lname, std::string email, float accBalance);
     void check_balance(unsigned id) const noexcept;
-    account makeDeposit(long accountNumber, float amount);
+    void deposit(unsigned id, double amount) noexcept;
     account withdrawal(long accountNumber, float amount);
     void closeAccount(long accountNumber);
     void updateBankData(std::map<long, account> activeAccounts);

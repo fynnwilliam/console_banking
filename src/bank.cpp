@@ -15,11 +15,14 @@ void bank::check_balance(unsigned id) const noexcept
     std::cout << accounts_.find(id).value_or("account not found\n");
 }
 
-account bank::makeDeposit(long accountNumber, float amount)
+void bank::deposit(long accountNumber, double amount) noexcept
 {
-    std::map<long, account>::iterator itr = accounts.find(accountNumber);
-    itr->second.deposit(amount);
-    return itr->second;
+    if (amount < 0)
+        std::cout << "cannot deposit negative values\n";
+    else if (auto& acc = accounts_.find(id))
+        acc->deposit(amount);
+    else
+        std::cout << "account not found\n";
 }
 
 account bank::withdrawal(long accountNumber, float amount)
