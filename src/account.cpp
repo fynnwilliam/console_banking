@@ -1,11 +1,7 @@
 #include "account.h"
 
-account::account(std::string fname, std::string lname, std::string email, float accBalance)
-    : firstName(fname),
-      lastName(lname),
-      email(email),
-      accountBalance(accBalance),
-      accountNumber(++nextAccountNumber)
+account::account(std::string const& f, std::string const& l)
+    : first_name_{std::move(f)}, last_name_{std::move(l)}
 {
 }
 
