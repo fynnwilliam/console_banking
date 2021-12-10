@@ -11,7 +11,6 @@ private:
     std::string firstName;
     std::string lastName;
     std::string email;
-    static long nextAccountNumber;
 
 public:
     account() = default;
@@ -21,13 +20,10 @@ public:
     std::string getEmail() { return email; }
     long getAccountNumber() { return accountNumber; }
     float getAccountBalance() { return accountBalance; }
-    //---------------------------------------------------------------
+
     void deposit(float amount);
     void withdraw(float amount);
-    static void setLastAccountNumber(long accountNumber);
-    static long getLastAccountNumber();
     friend std::ofstream &operator<<(std::ofstream &outfile, account &acc);
     friend std::ifstream &operator>>(std::ifstream &infile, account &acc);
     friend std::ostream &operator<<(std::ostream &display, account &acc);
-    ~account();
 };

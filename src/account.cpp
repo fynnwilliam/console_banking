@@ -1,7 +1,5 @@
 #include "account.h"
 
-long account::nextAccountNumber = 0;
-
 account::account(std::string fname, std::string lname, std::string email, float accBalance)
     : firstName(fname),
       lastName(lname),
@@ -23,16 +21,6 @@ void account::withdraw(float amount)
     if (amount > accountBalance - 1000)
         { throw std::invalid_argument("you are trying to pull more than you have"); }
     accountBalance -= amount;
-}
-
-void account::setLastAccountNumber(long accountNumber)
-{
-    nextAccountNumber = accountNumber;
-}
-
-long account::getLastAccountNumber()
-{
-    return nextAccountNumber;
 }
 
 std::ofstream &operator<<(std::ofstream &outfile, account &acc)
@@ -62,8 +50,4 @@ std::ostream &operator<<(std::ostream &display, account &acc)
             << "\taccount balance: " << acc.getAccountBalance() << "\n";
 
     return display;
-}
-
-account::~account()
-{
 }
