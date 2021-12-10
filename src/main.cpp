@@ -91,11 +91,10 @@ int main()
             gcb.showAccounts();
             break;
         case 7:
-            std::cout << "\nthank you, for banking with us\n";
+            std::cout << "\nthank you, for banking with us" << std::endl;
             break;
         default:
             std::cout << "\nselect any of options 1 through 7\n";
-            exit(0);
         }
     } while (option != 7);
 
