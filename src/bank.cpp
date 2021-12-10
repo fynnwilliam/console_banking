@@ -10,10 +10,9 @@ account bank::openAccount(std::string fname, std::string lname, std::string emai
     return acc;
 }
 
-account bank::balanceEnquiry(long accountNumber)
+void bank::check_balance(unsigned id) const noexcept
 {
-    std::map<long, account>::iterator itr = accounts.find(accountNumber);
-    return itr->second;
+    std::cout << accounts_.find(id).value_or("account not found\n");
 }
 
 account bank::makeDeposit(long accountNumber, float amount)
