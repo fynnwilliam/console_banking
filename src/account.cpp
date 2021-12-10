@@ -5,6 +5,11 @@ account::account(std::string const& f, std::string const& l)
 {
 }
 
+account_builder create(std::string const& f_name, std::string const& l_name)
+{
+    return account_builder{f_name, l_name};
+}
+
 void account::first_name(std::string const& f) noexcept
 {
     first_name_ = std::move(f);
