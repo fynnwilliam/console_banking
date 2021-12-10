@@ -24,6 +24,11 @@ std::string const& account::last_name() const noexcept
     return last_name_;
 }
 
+std::string const& account::email() const noexcept
+{
+    return email_;
+}
+
 unsigned account::id() const noexcept
 {
     return id_;
