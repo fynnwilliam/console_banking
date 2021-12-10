@@ -25,14 +25,16 @@ void database::read_from_file() noexcept
     }
 }
 
-std::optional<account> database::find(unsigned id) noexcept
+auto database::find(unsigned id) noexcept
 {
-    return db_.count(id) ? std::optional{db_[id]} : std::nullopt;
+    return db_.count(id) ? std::optional<std::reference_wrapper<account>>{db_[id]}
+                         : std::nullopt;
 }
 
-std::optional<account> database::find(unsigned id) const noexcept
+auto database::find(unsigned id) const noexcept
 {
-    return db_.count(id) ? std::optional{db_.at(id)} : std::nullopt;
+    return db_.count(id) ? std::optional<std::reference_wrapper<account>>{db_.at(id)}
+                         : std::nullopt;
 }
 
 void database::erase(unsigned id) noexcept
