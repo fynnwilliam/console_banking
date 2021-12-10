@@ -13,6 +13,18 @@ void database::write_to_file() const noexcept
         file << acc;
 }
 
+void database::read_from_file() noexcept
+{
+    std::ifstream file{"data"};
+    account acc{};
+    
+    while (file.is_open() && !file.eof())
+    {
+        file >> acc;
+        insert(acc.getAccountNumber(), acc);
+    }
+}
+
 std::optional<account> database::find(unsigned id) noexcept
 {
     return db_.count(id) ? std::optional{db_[id]} : std::nullopt;

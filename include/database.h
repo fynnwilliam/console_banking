@@ -12,6 +12,7 @@ private:
     std::mutex mtx_;
     
     database() = default;
+    void read_from_file() noexcept;
 
 public:
     static database& instance() noexcept
