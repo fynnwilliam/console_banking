@@ -21,7 +21,7 @@ void database::read_from_file() noexcept
     while (file.is_open() && !file.eof())
     {
         file >> acc;
-        insert(acc.getAccountNumber(), acc);
+        insert(acc.id(), acc);
     }
 }
 
