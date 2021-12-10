@@ -1,4 +1,5 @@
 #include "bank.h"
+#include <functional>
 
 auto bank::open_account(account_builder& builder) noexcept
 {
