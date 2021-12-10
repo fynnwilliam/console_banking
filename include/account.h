@@ -5,6 +5,8 @@
 
 #include "account_t.h"
 
+class account_builder;
+
 class account
 {
 private:
@@ -39,4 +41,7 @@ public:
     friend std::ofstream& operator<<(std::ofstream&, account const&);
     friend std::ifstream& operator>>(std::ifstream&, account&);
     friend std::ostream&  operator<<(std::ostream& , account const&);
+    
+    friend class account_builder;
+    static account_builder create(std::string const&, std::string const&);
 };
