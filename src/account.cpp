@@ -57,11 +57,13 @@ std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
                << acc.balance()    << "\n";
 }
 
-std::ifstream &operator>>(std::ifstream &infile, account &acc)
+std::ifstream& operator>>(std::ifstream& ifs, account& acc)
 {
-    infile >> acc.accountNumber >> acc.firstName >> acc.lastName >> acc.email >> acc.accountNumber;
-
-    return infile;
+    return ifs >> acc.id_
+               >> acc.first_name_
+               >> acc.last_name_
+               >> acc.email_
+               >> acc.balance_;
 }
 
 std::ostream &operator<<(std::ostream &display, account &acc)

@@ -26,6 +26,6 @@ public:
     void withdraw(double) noexcept;
     
     friend std::ofstream& operator<<(std::ofstream&, account const&);
-    friend std::ifstream& operator>>(std::ifstream& infile,  account const& acc);
+    friend std::ifstream& operator>>(std::ifstream&, account&);
     friend std::ostream&  operator<<(std::ostream&  display, account const& acc);
 };
