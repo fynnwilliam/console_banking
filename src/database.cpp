@@ -61,6 +61,11 @@ bool database::empty() const noexcept
     return db_.empty();
 }
 
+bool database::count(unsigned id) const noexcept
+{
+    return db_.count(id);
+}
+
 database::~database()
 {
     if (!empty()) write_to_file();

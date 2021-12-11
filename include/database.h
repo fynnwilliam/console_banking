@@ -23,6 +23,7 @@ public:
     
     auto insert(unsigned, account) noexcept;
     void  erase(unsigned)          noexcept;
+    bool  count(unsigned)    const noexcept;
     void write_to_file()     const noexcept;
     auto  begin()            const noexcept;
     auto cbegin()            const noexcept;
