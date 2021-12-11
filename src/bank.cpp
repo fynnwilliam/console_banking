@@ -1,14 +1,15 @@
 #include "bank.h"
 #include <functional>
 
-auto bank::open_account(account_builder& builder) noexcept
+auto bank::open_account(account_builder&& builder) noexcept
 {
-    unsigned   id{new_id()};
-    builder.id(id)
+    unsigned id{new_id()};
+    builder.email(email())
+           .balance(amount())
+           .id(id)
            .type(account_t::savings);
     
     auto const& [acc_itr, is_successful] = accounts_.insert({id, builder});
-    
     return is_successful ? std::optional<std::reference_wrapper<account>>{acc_itr->second}
                          : std::nullopt;
 }
