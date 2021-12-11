@@ -33,5 +33,5 @@ public:
     void  deposit()      noexcept;
     void check_balance() const noexcept;
     void open_account() noexcept;
-    std::int8_t inquire() const noexcept;
+    int inquire() const noexcept;
 };
