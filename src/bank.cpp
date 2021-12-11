@@ -67,6 +67,11 @@ void bank::list_accounts() const noexcept
         std::cout << ++count << '\n' << acc << '\n';
 }
 
+void bank::close_account() noexcept
+{   
+    close_account(id());
+}
+
 unsigned bank::id() const noexcept
 {
     static std::string id{};
@@ -76,7 +81,9 @@ unsigned bank::id() const noexcept
     return valid(id) ? atol(id.c_str()) : id_();
 }
 
-void bank::close_account() noexcept
-{   
-    close_account(id());
+bool bank::valid(std::string const& s) const noexcept
+{
+    for (char c : s)
+        if (!std::isdigit(c)) return false;
+    return true;
 }
