@@ -76,12 +76,6 @@ void bank::list_accounts() const noexcept
         std::cout << ++count << '\n' << acc << '\n';
 }
 
-unsigned bank::id() const noexcept
-{
-    std::string const& input{request("enter a valid account id")};    
-    return valid(input) ? atol(input.c_str()) : id();
-}
-
 bool bank::valid(std::string const& s) const noexcept
 {
     for (char c : s)
@@ -89,10 +83,34 @@ bool bank::valid(std::string const& s) const noexcept
     return true;
 }
 
+unsigned bank::id() const noexcept
+{
+    std::string const& input{request("account id")};    
+    return valid(input) ? atol(input.c_str()) : id();
+}
+
 double bank::amount() const noexcept
 {
-    std::string const& input{request("enter an amount")};
+    std::string const& input{request("amount")};
     return valid(input) ? atol(input.c_str()) : amount();
+}
+
+std::string const& bank::first_name() const noexcept
+{
+    return request("first name");
+}
+
+std::string const& bank::last_name() const noexcept
+{
+    return request("last name");
+}
+
+std::string const& bank::email() const noexcept
+{
+    std::regex pattern{"(\\w+)(\\.|_)?(\\w+)@(\\w+)(\\.(\\w+))+"};
+    std::string const& input{request("valid email address")};
+    
+    return std::regex_match(input, pattern) ? input : email();
 }
 
 std::string const& bank::request(std::string&& statement) const noexcept

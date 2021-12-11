@@ -14,6 +14,9 @@ private:
     double    amount() const noexcept;
     bool            valid(std::string const&) const noexcept;
     std::string const& request(std::string&&) const noexcept;
+    std::string const& bank::last_name() const noexcept;
+    std::string const& bank::first_name() const noexcept;
+    std::string const& bank::email() const noexcept;
     void               account_not_found()    const noexcept;
 
 public:
