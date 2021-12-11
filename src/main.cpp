@@ -47,13 +47,7 @@ int main()
                       << "\naccount created successfully.\n";
             break;
         case 2:
-            std::cout << "enter account number: ";
-            std::cin >> accNumber;
-
-            acc = gcb.balanceEnquiry(accNumber);
-
-            std::cout << "\nplease find current balance below...\n\n"
-                      << acc;
+            gcb.check_balance();
             break;
         case 3:
             gcb.deposit();
