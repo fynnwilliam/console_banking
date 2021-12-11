@@ -16,7 +16,8 @@ auto bank::open_account(account_builder&& builder) noexcept
 
 void bank::open_account() noexcept
 {
-    open_account(account::create(first_name(), last_name()));
+    auto const& acc = open_account(account::create(first_name(), last_name()));
+    std::cout << acc.value_or("could not create account\n");
 }
 
 unsigned bank::new_id() const noexcept
