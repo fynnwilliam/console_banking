@@ -149,5 +149,5 @@ int bank::inquire() const noexcept
               << "\n\t0. exit";
 
     std::string const& s{request("\n\nselect an option")};
-    return s.size() == 1 && valid(s) && s[0] < '7' ? atoi(s.c_str()) : {100};
+    return s.size() == 1 && valid(s) && s[0] < '7' ? atoi(s.c_str()) : 100;
 }
