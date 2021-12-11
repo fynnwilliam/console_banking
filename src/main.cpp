@@ -56,15 +56,7 @@ int main()
                       << acc;
             break;
         case 3:
-            std::cout << "enter account number: ";
-            std::cin >> accNumber;
-            std::cout << "enter amount to deposit: ";
-            std::cin >> amount;
-
-            acc = gcb.makeDeposit(accNumber, amount);
-
-            std::cout << "\ndeposit complete.\nfind current details below...\n\n"
-                      << acc;
+            gcb.deposit();
             break;
         case 4:
             gcb.withdraw();
