@@ -79,13 +79,7 @@ int main()
                       << acc;
             break;
         case 5:
-            std::cout << "enter account number to be closed: ";
-            std::cin  >> accNumber;
-
-            gcb.closeAccount(accNumber);
-
-            std::cout << "account deleted.\n"
-                      << acc;
+            gcb.close_account();
             break;
         case 6:
             gcb.list_accounts();
