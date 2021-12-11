@@ -74,11 +74,11 @@ void bank::close_account() noexcept
 
 unsigned bank::id() const noexcept
 {
-    static std::string id{};
+    static std::string input{};
     std::cout << "enter a valid account id: ";
-    std::getline(std::cin, id);
+    std::getline(std::cin, input);
     
-    return valid(id) ? atol(id.c_str()) : id_();
+    return valid(input) ? atol(input.c_str()) : id();
 }
 
 bool bank::valid(std::string const& s) const noexcept
