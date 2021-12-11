@@ -74,10 +74,7 @@ void bank::close_account() noexcept
 
 unsigned bank::id() const noexcept
 {
-    static std::string input{};
-    std::cout << "enter a valid account id: ";
-    std::getline(std::cin, input);
-    
+    std::string const& input{request("enter a valid account id")};    
     return valid(input) ? atol(input.c_str()) : id();
 }
 
@@ -90,10 +87,7 @@ bool bank::valid(std::string const& s) const noexcept
 
 double bank::amount() const noexcept
 {
-    static std::string input{};
-    std::cout << "enter an amount: ";
-    std::getline(std::cin, input);
-    
+    std::string const& input{request("enter an amount")};
     return valid(input) ? atol(input.c_str()) : amount();
 }
 
