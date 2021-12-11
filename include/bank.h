@@ -33,4 +33,5 @@ public:
     void  deposit()      noexcept;
     void check_balance() const noexcept;
     void open_account() noexcept;
+    void inquire() const noexcept;
 };
