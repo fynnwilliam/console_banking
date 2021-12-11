@@ -26,4 +26,5 @@ public:
     void list_accounts()                 const noexcept;
     void close_account() noexcept;
     void withdraw()      noexcept;
+    void  deposit()      noexcept;
 };

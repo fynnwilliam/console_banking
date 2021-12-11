@@ -44,6 +44,11 @@ void bank::deposit(long accountNumber, double amount) noexcept
         std::cout << "account not found\n";
 }
 
+void bank::deposit() noexcept
+{
+    deposit(id(), amount());
+}
+
 void bank::withdraw(unsigned id, double amount) noexcept
 {
     if (auto& acc = accounts_.find(id))
