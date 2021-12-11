@@ -134,7 +134,7 @@ void bank::account_not_found() const noexcept
     std::cout << "account not found\n";
 }
 
-void bank::inquire() const noexcept
+std::int8_t bank::inquire() const noexcept
 {
     std::cout << "\n\t1. open account"
               << "\n\t2. check balance"
@@ -142,6 +142,8 @@ void bank::inquire() const noexcept
               << "\n\t4. withdraw"
               << "\n\t5. close account"
               << "\n\t6. list accounts"
-              << "\n\t7. exit"
-              << "\n\nselect an option: ";
+              << "\n\t0. exit";
+
+    std::string const& s{request("\n\nselect an option")};
+    return s.size() == 1 && valid(s) && s[0] < '8' ? s[0] : {'8'};
 }
