@@ -16,8 +16,10 @@ auto bank::open_account(account_builder&& builder) noexcept
 
 void bank::open_account() noexcept
 {
-    auto const& acc = open_account(account::create(first_name(), last_name()));
-    std::cout << acc.value_or("could not create account\n");
+    if (auto const& acc = open_account(account::create(first_name(), last_name())))
+        std::cout << *acc;
+    else
+        std::cout << "could not creat account\n";
 }
 
 unsigned bank::new_id() const noexcept
@@ -30,15 +32,18 @@ unsigned bank::_new_id() const noexcept
 {
     if (accounts_.empty()) return {};
     
-    auto a{accounts_.begin()->id()};
-    auto b{(accounts_.end() - 1)->id()};
+    auto a =  accounts_.cbegin()->first;
+    auto b =  unsigned{}; // accounts_.cend()->first; incomplete...
     
     return std::max(a, b);
 }
 
 void bank::check_balance(unsigned id) const noexcept
 {
-    std::cout << accounts_.find(id).value_or("account not found\n");
+    if (accounts_.count(id))
+        std::cout << accounts_[id].balance() << '\n';
+    else
+        account_not_found();
 }
 
 void bank::check_balance() const noexcept
@@ -144,6 +149,6 @@ int bank::inquire() const noexcept
               << "\n\t6. list accounts"
               << "\n\t0. exit";
 
-    std::string const& s{request("\n\nselect an option")};
+    std::string const& s{request("\n\n\tselect an option")};
     return s.size() == 1 && valid(s) && s[0] < '7' ? atoi(s.c_str()) : 100;
 }
