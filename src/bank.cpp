@@ -46,9 +46,7 @@ void bank::deposit(long accountNumber, double amount) noexcept
 
 void bank::withdraw(unsigned id, double amount) noexcept
 {
-    if (amount < 0)
-        std::cout << "cannot withdraw negative values\n";
-    else if (auto& acc = accounts_.find(id))
+    if (auto& acc = accounts_.find(id))
         acc->withdraw(amount);
     else
         std::cout << "account not found\n";
@@ -67,16 +65,16 @@ void bank::close_account(unsigned id) noexcept
         std::cout << "account not found\n";
 }
 
+void bank::close_account() noexcept
+{   
+    close_account(id());
+}
+
 void bank::list_accounts() const noexcept
 {
     std::size_t count{};
     for (auto const& [_, acc] : accounts_)
         std::cout << ++count << '\n' << acc << '\n';
-}
-
-void bank::close_account() noexcept
-{   
-    close_account(id());
 }
 
 unsigned bank::id() const noexcept
