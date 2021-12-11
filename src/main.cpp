@@ -2,15 +2,6 @@
 
 int main()
 {
-    std::string fname{};
-    std::string lname{};
-    std::string email{};
-    float amount{};
-    float initialAmount{};
-    long accNumber{};
-    int option{};
-
-    account acc{};
     bank gcb{};
 
     std::cout << "welcome to console banking! :)\n\n";
