@@ -66,3 +66,14 @@ void bank::list_accounts() const noexcept
     for (auto const& [_, acc] : accounts_)
         std::cout << ++count << '\n' << acc << '\n';
 }
+
+void bank::close_account() noexcept
+{
+    static long id{};
+    std::cout << "enter a valid account number to be closed: ";
+    std::cin  >> id;
+    std::cin.clear();
+    std::cin.ignore(10'000,'\n');
+    
+    id > 0 ? close_account(id) : close_account();
+}
