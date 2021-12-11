@@ -32,4 +32,5 @@ public:
     void withdraw()      noexcept;
     void  deposit()      noexcept;
     void check_balance() const noexcept;
+    void open_account() noexcept;
 };

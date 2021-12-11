@@ -13,6 +13,11 @@ auto bank::open_account(account_builder& builder) noexcept
                          : std::nullopt;
 }
 
+void bank::open_account() noexcept
+{
+    open_account(account::create(first_name(), last_name()));
+}
+
 unsigned bank::new_id() const noexcept
 {
     static unsigned id{_new_id()};
