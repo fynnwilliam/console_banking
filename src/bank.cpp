@@ -1,6 +1,5 @@
 #include "bank.h"
 #include "account_builder.h"
-#include <functional>
 #include <regex>
 
 auto bank::open_account(account_builder&& builder) noexcept
