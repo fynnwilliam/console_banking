@@ -21,6 +21,8 @@ unsigned bank::new_id() const noexcept
 
 unsigned bank::_new_id() const noexcept
 {
+    if (accounts_.empty()) return {};
+    
     auto a{accounts_.begin()->id()};
     auto b{(accounts_.end() - 1)->id()};
     
@@ -99,3 +101,4 @@ std::string const& bank::request(std::string&& statement) const noexcept
     
     return input;
 }
+
