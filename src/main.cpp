@@ -2,7 +2,7 @@
 
 int main()
 {
-    bank gcb{};
+    bank gcb{database::instance()};
     while (int option = gcb.inquire())
     {
         switch (option)
