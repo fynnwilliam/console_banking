@@ -1,6 +1,6 @@
 #include "database.h"
 
-auto database::insert(unsigned id, account acc) noexcept
+database::ins_itr database::insert(unsigned id, account acc) noexcept
 {
     std::scoped_lock{mtx_};
     return db_.insert({id, acc});
@@ -36,22 +36,22 @@ void database::erase(unsigned id) noexcept
     db_.erase(id);
 }
 
-auto database::begin() const noexcept
+database::db_itr database::begin()  noexcept
 {
     return db_.begin();
 }
 
-auto database::cbegin() const noexcept
+database::db_citr database::cbegin() const noexcept
 {
     return db_.cbegin();
 }
 
-auto database::end() const noexcept
+database::db_itr database::end() noexcept
 {
     return db_.end();
 }
 
-auto database::cend() const noexcept
+database::db_citr database::cend() const noexcept
 {
     return db_.cend();
 }
