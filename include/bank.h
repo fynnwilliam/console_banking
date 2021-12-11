@@ -28,4 +28,5 @@ public:
     void close_account() noexcept;
     void withdraw()      noexcept;
     void  deposit()      noexcept;
+    void check_balance() const noexcept;
 };
