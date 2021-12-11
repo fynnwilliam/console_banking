@@ -4,8 +4,7 @@
 #include <string>
 
 #include "account_t.h"
-
-class account_builder;
+#include "account_builder.h"
 
 class account
 {

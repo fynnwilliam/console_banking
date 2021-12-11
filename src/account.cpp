@@ -5,7 +5,7 @@ account::account(std::string const& f, std::string const& l)
 {
 }
 
-account_builder create(std::string const& f_name, std::string const& l_name)
+account_builder account::create(std::string const& f_name, std::string const& l_name)
 {
     return account_builder{f_name, l_name};
 }
@@ -70,12 +70,12 @@ double account::balance() const noexcept
     return balance_;
 }
 
-void account::deposit(double amount)
+void account::deposit(double amount) noexcept
 {
     if (amount > 0) balance_ += amount;
 }
 
-void account::withdraw(double amount)
+void account::withdraw(double amount) noexcept
 {
     if (amount < balance_ - 100)
         balance_ -= amount;
