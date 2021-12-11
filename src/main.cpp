@@ -3,34 +3,28 @@
 int main()
 {
     bank gcb{};
-    int option{};
-    std::cout << "welcome to console banking! :)\n\n";
-
-    do
+    while (int option = gcb.inquire())
     {
-        gcb.inquire();
-        std::cin >> option;
-
         switch (option)
         {
             case 1:
-                gcb.open_account();                               break;
+                gcb.open_account();   break;
             case 2:
-                gcb.check_balance();                              break;
+                gcb.check_balance();  break;
             case 3:
-                gcb.deposit();                                    break;
+                gcb.deposit();        break;
             case 4:
-                gcb.withdraw();                                   break;
+                gcb.withdraw();       break;
             case 5:
-                gcb.close_account();                              break;
+                gcb.close_account();  break;
             case 6:
-                gcb.list_accounts();                              break;
-            case 7:
-                std::cout << "\nthave a great day!" << std::endl; break;
+                gcb.list_accounts();  break;
             default:
-                std::cout << "\nselect among options 1 through 7\n";
+                std::cout << "\nselect among options 0 through 6\n";
         }
-    } while (option != 7);
+    }
+    
+    std::cout << "\nthave a great day!" << std::endl;
 
     return 0;
 }
