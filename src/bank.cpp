@@ -87,3 +87,12 @@ bool bank::valid(std::string const& s) const noexcept
         if (!std::isdigit(c)) return false;
     return true;
 }
+
+double bank::amount() const noexcept
+{
+    static std::string input{};
+    std::cout << "enter an amount: ";
+    std::getline(std::cin, input);
+    
+    return valid(input) ? atol(input.c_str()) : amount();
+}

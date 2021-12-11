@@ -11,6 +11,7 @@ private:
     unsigned  new_id() const noexcept;
     unsigned _new_id() const noexcept;
     unsigned      id() const noexcept;
+    double    amount() const noexcept;
     bool valid(std::string const&) const noexcept;
 
 public:
