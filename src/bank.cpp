@@ -36,10 +36,7 @@ void bank::check_balance(unsigned id) const noexcept
 
 void bank::deposit(unsigned id, double amount) noexcept
 {
-    if (auto& acc = accounts_.find(id))
-        acc->deposit(amount);
-    else
-        std::cout << "account not found\n";
+    (auto& acc = accounts_.find(id)) ? acc->deposit(amount) : account_not_found();
 }
 
 void bank::deposit() noexcept
@@ -49,10 +46,7 @@ void bank::deposit() noexcept
 
 void bank::withdraw(unsigned id, double amount) noexcept
 {
-    if (auto& acc = accounts_.find(id))
-        acc->withdraw(amount);
-    else
-        std::cout << "account not found\n";
+    (auto& acc = accounts_.find(id)) ? acc->withdraw(amount) : account_not_found();
 }
 
 void bank::withdraw() noexcept
@@ -62,10 +56,7 @@ void bank::withdraw() noexcept
 
 void bank::close_account(unsigned id) noexcept
 {
-    if (accounts_.find(id))
-        accounts_.erase(id);
-    else
-        std::cout << "account not found\n";
+    accounts_.find(id) ? accounts_.erase(id) : account_not_found();
 }
 
 void bank::close_account() noexcept
@@ -106,4 +97,9 @@ std::string const& bank::request(std::string&& statement) const noexcept
     std::getline(std::cin, input);
     
     return input;
+}
+
+void bank::account_not_found() const noexcept
+{
+    std::cout << "account not found\n";
 }

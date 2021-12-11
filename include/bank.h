@@ -14,6 +14,7 @@ private:
     double    amount() const noexcept;
     bool            valid(std::string const&) const noexcept;
     std::string const& request(std::string&&) const noexcept;
+    void               account_not_found()    const noexcept;
 
 public:
     bank(database& db) : accounts_{db} {}
