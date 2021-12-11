@@ -12,8 +12,7 @@ auto bank::open_account(account_builder&& builder) noexcept
            .type(account_t::savings);
     
     auto const& [acc_itr, is_successful] = accounts_.insert(id, builder);
-    return is_successful ? std::optional<std::reference_wrapper<account>>{acc_itr->second}
-                         : std::nullopt;
+    return is_successful ? std::make_optional(acc_itr->second) : std::nullopt;
 }
 
 void bank::open_account() noexcept
