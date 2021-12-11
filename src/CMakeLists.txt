@@ -6,10 +6,12 @@ target_include_directories(account_builder PUBLIC ../include)
 
 add_library(database database.cpp)
 target_include_directories(database PUBLIC ../include)
+target_link_libraries(database PUBLIC account)
 
 add_library(bank_ bank.cpp)
 target_include_directories(bank_ PUBLIC ../include)
+target_link_libraries(bank_ PUBLIC account_builder)
 
 add_executable(bank main.cpp)
-target_link_libraries(bank PUBLIC account account_builder database bank_)
+target_link_libraries(bank PUBLIC database bank_)
 target_compile_options(bank PRIVATE -O3 -pedantic-errors)
