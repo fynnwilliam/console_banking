@@ -48,8 +48,7 @@ void bank::check_balance() const noexcept
 
 void bank::deposit(unsigned id, double amount) noexcept
 {
-    auto& acc = accounts_.find(id);
-    acc ? acc->deposit(amount) : account_not_found();
+    accounts_.count(id) ? accounts_[id].deposit(amount) : account_not_found();
 }
 
 void bank::deposit() noexcept
@@ -59,8 +58,7 @@ void bank::deposit() noexcept
 
 void bank::withdraw(unsigned id, double amount) noexcept
 {
-    auto& acc = accounts_.find(id);
-    acc ? acc->withdraw(amount) : account_not_found();
+    accounts_.count(id) ? accounts_[id].withdraw(amount) : account_not_found();
 }
 
 void bank::withdraw() noexcept
@@ -70,7 +68,7 @@ void bank::withdraw() noexcept
 
 void bank::close_account(unsigned id) noexcept
 {
-    accounts_.find(id) ? accounts_.erase(id) : account_not_found();
+    accounts_.count(id) ? accounts_.erase(id) : account_not_found();
 }
 
 void bank::close_account() noexcept
