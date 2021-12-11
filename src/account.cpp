@@ -1,4 +1,5 @@
 #include "account.h"
+#include "account_builder.h"
 
 account::account(std::string const& f, std::string const& l)
     : first_name_{std::move(f)}, last_name_{std::move(l)}
@@ -85,20 +86,24 @@ void account::withdraw(double amount) noexcept
 
 std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
 {
-    return ofs << acc.id()         << '\n'
-               << acc.first_name() << '\n'
-               << acc.last_name()  << '\n'
-               << acc.email()      << '\n'
-               << acc.balance()    << '\n';
+    ofs << acc.id()         << '\n'
+        << acc.first_name() << '\n'
+        << acc.last_name()  << '\n'
+        << acc.email()      << '\n'
+        << acc.balance()    << '\n';
+
+     return ofs;
 }
 
 std::ifstream& operator>>(std::ifstream& ifs, account& acc)
 {
-    return ifs >> acc.id_
-               >> acc.first_name_
-               >> acc.last_name_
-               >> acc.email_
-               >> acc.balance_;
+    ifs >> acc.id_
+        >> acc.first_name_
+        >> acc.last_name_
+        >> acc.email_
+        >> acc.balance_;
+
+    return ifs;
 }
 
 std::ostream& operator<<(std::ostream& os, account const& acc)
