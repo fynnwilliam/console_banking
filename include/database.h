@@ -22,8 +22,6 @@ public:
     }
     
     auto insert(unsigned, account) noexcept;
-    auto   find(unsigned)          noexcept;
-    auto   find(unsigned)    const noexcept;
     void  erase(unsigned)          noexcept;
     void write_to_file()     const noexcept;
     auto  begin()            const noexcept;
@@ -31,5 +29,6 @@ public:
     auto    end()            const noexcept;
     auto   cend()            const noexcept;
     bool  empty()            const noexcept;
+    std::optional<account> find(unsigned)    const noexcept;
       ~database();
 };
