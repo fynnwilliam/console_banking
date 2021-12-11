@@ -67,16 +67,7 @@ int main()
                       << acc;
             break;
         case 4:
-            std::cout << "enter account number: ";
-            std::cin >> accNumber;
-            std::cout << "enter amount to withdraw: ";
-            std::cin >> amount;
-
-            try { acc = gcb.withdrawal(accNumber, amount); }
-            catch (const std::exception& e) { std::cerr << '\n' << e.what() << '\n'; break;}            
-
-            std::cout << "\nwithdrawal complete.\nfind current details below...\n\n"
-                      << acc;
+            gcb.withdraw();
             break;
         case 5:
             gcb.close_account();
