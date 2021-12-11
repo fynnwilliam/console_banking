@@ -34,8 +34,7 @@ auto database::find(unsigned id) noexcept
 
 auto database::find(unsigned id) const noexcept
 {
-    return db_.count(id) ? std::optional<std::reference_wrapper<account>>{db_.at(id)}
-                         : std::nullopt;
+    return db_.count(id) ? std::make_optional(db_.at(id)) : std::nullopt;
 }
 
 void database::erase(unsigned id) noexcept
