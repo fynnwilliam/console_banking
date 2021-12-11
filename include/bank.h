@@ -25,4 +25,5 @@ public:
     void close_account(unsigned)               noexcept;
     void list_accounts()                 const noexcept;
     void close_account() noexcept;
+    void withdraw()      noexcept;
 };

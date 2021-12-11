@@ -54,6 +54,11 @@ void bank::withdraw(unsigned id, double amount) noexcept
         std::cout << "account not found\n";
 }
 
+void bank::withdraw() noexcept
+{
+    withdraw(id(), amount());
+}
+
 void bank::close_account(unsigned id) noexcept
 {
     if (accounts_.find(id))
@@ -101,4 +106,3 @@ std::string const& bank::request(std::string&& statement) const noexcept
     
     return input;
 }
-
