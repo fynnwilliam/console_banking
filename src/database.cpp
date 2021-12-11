@@ -9,7 +9,7 @@ auto database::insert(unsigned id, account acc) noexcept
 void database::write_to_file() const noexcept
 {
     std::ofstream file{"data", std::ios::trunc};
-    for (auto& [id, acc] : db_)
+    for (auto& [_, acc] : db_)
         file << acc;
 }
 
@@ -66,6 +66,15 @@ bool database::count(unsigned id) const noexcept
     return db_.count(id);
 }
 
+account& database::operator[](unsigned id) noexcept
+{
+    return db_[id];
+}
+
+account const& database::operator[](unsigned id) const noexcept
+{
+    return db_.at(id);
+}
 database::~database()
 {
     if (!empty()) write_to_file();

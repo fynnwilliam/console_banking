@@ -30,6 +30,8 @@ public:
     auto    end()            const noexcept;
     auto   cend()            const noexcept;
     bool  empty()            const noexcept;
-    std::optional<account> find(unsigned)    const noexcept;
+    account&       operator[](unsigned)         noexcept;
+    account const& operator[](unsigned)   const noexcept;
+    std::optional<account> find(unsigned) const noexcept;
       ~database();
 };
