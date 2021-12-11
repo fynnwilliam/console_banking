@@ -67,13 +67,16 @@ void bank::list_accounts() const noexcept
         std::cout << ++count << '\n' << acc << '\n';
 }
 
-void bank::close_account() noexcept
+unsigned bank::id() const noexcept
 {
-    static long id{};
-    std::cout << "enter a valid account number to be closed: ";
-    std::cin  >> id;
-    std::cin.clear();
-    std::cin.ignore(10'000,'\n');
+    static std::string id{};
+    std::cout << "enter a valid account id: ";
+    std::getline(std::cin, id);
     
-    id > 0 ? close_account(id) : close_account();
+    return valid(id) ? atol(id.c_str()) : id_();
+}
+
+void bank::close_account() noexcept
+{   
+    close_account(id());
 }

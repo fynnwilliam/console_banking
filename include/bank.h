@@ -10,6 +10,7 @@ private:
     
     unsigned  new_id() const noexcept;
     unsigned _new_id() const noexcept;
+    unsigned      id() const noexcept;
 
 public:
     bank(database& db) : accounts_{db} {}
