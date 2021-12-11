@@ -96,3 +96,12 @@ double bank::amount() const noexcept
     
     return valid(input) ? atol(input.c_str()) : amount();
 }
+
+std::string const& bank::request(std::string&& statement) const noexcept
+{
+    static std::string input{};
+    std::cout << statement << ": ";
+    std::getline(std::cin, input);
+    
+    return input;
+}

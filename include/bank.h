@@ -12,7 +12,8 @@ private:
     unsigned _new_id() const noexcept;
     unsigned      id() const noexcept;
     double    amount() const noexcept;
-    bool valid(std::string const&) const noexcept;
+    bool            valid(std::string const&) const noexcept;
+    std::string const& request(std::string&&) const noexcept;
 
 public:
     bank(database& db) : accounts_{db} {}
