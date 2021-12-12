@@ -77,6 +77,12 @@ void bank::close_account(unsigned id) noexcept
     accounts_.count(id) ? accounts_.erase(id) : account_not_found();
 }
 
+void bank::deprecate_account(unsigned id) noexcept
+{
+    archive_account(id);
+    accounts_.erase(id);
+}
+
 void bank::close_account() noexcept
 {   
     close_account(id());

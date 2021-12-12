@@ -21,6 +21,7 @@ private:
     void open_account()                       noexcept;
     int  _inquire()                     const noexcept;
     void deliver(int)                         noexcept;
+    void deprecate_account(unsigned)          noexcept;
 
     std::string last_name()             const noexcept;
     std::string first_name()            const noexcept;
