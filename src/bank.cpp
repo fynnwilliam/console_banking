@@ -32,10 +32,11 @@ unsigned bank::_new_id() const noexcept
 {
     if (accounts_.empty()) return {};
     
-    unsigned a{};
-    if (std::ifstream source{"data"}; source.is_open() && !source.eof())
-        source >> a;
-    return a;
+    unsigned a{accounts_.cbegin()->first};
+    unsigned b{};
+    if (std::ifstream source{"data"}; source.is_open())
+        source >> b;
+    return std::max(a, b);
 }
 
 void bank::check_balance(unsigned id) const noexcept
