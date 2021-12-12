@@ -16,7 +16,7 @@ auto bank::open_account(account_builder&& builder) noexcept
 
 void bank::open_account() noexcept
 {
-    if (auto const& acc = open_account(account::create(first_name(), last_name())))
+    if (auto const& acc = open_account(account::create(last_name(), first_name())))
         std::cout << *acc;
     else
         std::cout << "could not creat account\n";
@@ -97,35 +97,35 @@ bool bank::valid(std::string const& s) const noexcept
 
 unsigned bank::id() const noexcept
 {
-    std::string const& input{request("account id")};    
-    return valid(input) ? atol(input.c_str()) : id();
+    std::string& input{request("account id")};    
+    return valid(input) ? std::atol(input.c_str()) : id();
 }
 
 double bank::amount() const noexcept
 {
-    std::string const& input{request("amount")};
-    return valid(input) ? atol(input.c_str()) : amount();
+    std::string& input{request("amount")};
+    return valid(input) ? std::atol(input.c_str()) : amount();
 }
 
-std::string const& bank::first_name() const noexcept
+std::string bank::first_name() const noexcept
 {
-    return request("first name");
+    return std::move(request("first name"));
 }
 
-std::string const& bank::last_name() const noexcept
+std::string bank::last_name() const noexcept
 {
-    return request("last name");
+    return std::move(request("last name"));
 }
 
-std::string const& bank::email() const noexcept
+std::string bank::email() const noexcept
 {
     std::regex pattern{"(\\w+)(\\.|_)?(\\w+)@(\\w+)(\\.(\\w+))+"};
-    std::string const& input{request("valid email address")};
+    std::string& input{request("valid email address")};
     
-    return std::regex_match(input, pattern) ? input : email();
+    return std::regex_match(input, pattern) ? std::move(input) : email();
 }
 
-std::string const& bank::request(std::string&& statement) const noexcept
+std::string& bank::request(std::string&& statement) const noexcept
 {
     static std::string input{};
     std::cout << statement << ": ";

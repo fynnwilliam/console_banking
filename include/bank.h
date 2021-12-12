@@ -12,18 +12,19 @@ private:
     unsigned  id()     const noexcept;
     double    amount() const noexcept;
 
-    std::string const& last_name()  const noexcept;
-    std::string const& first_name() const noexcept;
-    std::string const& email()      const noexcept;
-    void account_not_found()        const noexcept;
-    bool valid(std::string const&)  const noexcept;
-    void check_balance(unsigned)    const noexcept;
-    void deposit(unsigned, double)        noexcept;
-    void withdraw(unsigned, double)       noexcept;
-    void close_account(unsigned)          noexcept;
+    std::string last_name()  const noexcept;
+    std::string first_name() const noexcept;
+    std::string email()      const noexcept;
     
-    std::string const& request(std::string&&) const noexcept;
-    auto open_account(account_builder&&)            noexcept;
+    void account_not_found()       const noexcept;
+    bool valid(std::string const&) const noexcept;
+    void check_balance(unsigned)   const noexcept;
+    void deposit(unsigned, double)       noexcept;
+    void withdraw(unsigned, double)      noexcept;
+    void close_account(unsigned)         noexcept;
+    
+    std::string& request(std::string&&) const noexcept;
+    auto open_account(account_builder&&)      noexcept;
 
 public:
     bank(database& db) : accounts_{db} {}
