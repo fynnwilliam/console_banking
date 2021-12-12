@@ -12,15 +12,16 @@ private:
     std::mutex mtx_;
     
     database() = default;
-    void read_from_file() noexcept;
+    void read_from_file()                       noexcept;
+    void write_to_file()                  const noexcept;
 
 public:
-    static database& instance() noexcept
+    static database& instance()                 noexcept
     {
         static database db{};
-        static std::once_flag once;
-        std::call_once(once, [&] { db.read_from_file(); });
-        
+        // static std::once_flag once;
+        // std::call_once(once, [&] { db.read_from_file(); });
+        if (db.empty()) db.read_from_file();
         return db;
     }
 
@@ -31,7 +32,6 @@ public:
     ins_itr insert(unsigned, account)           noexcept;
     void    erase(unsigned)                     noexcept;
     bool    count(unsigned)               const noexcept;
-    void    write_to_file()               const noexcept;
     db_itr  begin()                             noexcept;
     db_citr cbegin()                      const noexcept;
     db_itr  end()                               noexcept;
