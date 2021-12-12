@@ -108,7 +108,7 @@ std::ifstream& operator>>(std::ifstream& ifs, account& acc)
 
 std::ostream& operator<<(std::ostream& os, account const& acc)
 {
-    return os << "\n\taccount id: " << acc.id()
+    return os <<   "\taccount id: " << acc.id()
               << "\n\tlast  name: " << acc.last_name()
               << "\n\tfirst name: " << acc.first_name()
               << "\n\temail: "      << acc.email()
