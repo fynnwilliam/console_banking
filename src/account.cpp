@@ -73,7 +73,7 @@ double account::balance() const noexcept
 
 void account::deposit(double amount) noexcept
 {
-    if (amount > 0) balance_ += amount;
+    if (amount) balance_ += amount;
 }
 
 void account::withdraw(double amount) noexcept
