@@ -163,6 +163,8 @@ void bank::inquire() noexcept
 {
     while (int option = _inquire())
         deliver(option);
+    
+    std::cout << "\n\tnice, have a great day!" << std::endl;
 }
 
 void bank::deliver(int option) noexcept
