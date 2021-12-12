@@ -32,8 +32,11 @@ private:
     void deposit(unsigned, double)            noexcept;
     void withdraw(unsigned, double)           noexcept;
     void close_account(unsigned)              noexcept;
+    void trim_front(std::string&)       const noexcept;
+    void trim_back(std::string&)        const noexcept;
     
     std::string& request(std::string&&) const noexcept;
+    std::string& trim(std::string&)     const noexcept;
     auto open_account(account_builder&&)      noexcept;
 
 public:

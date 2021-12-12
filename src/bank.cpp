@@ -127,7 +127,7 @@ std::string bank::email() const noexcept
 
 int bank::option() const noexcept
 {
-    std::string const& s{request("\tselect an option, 0 - 6")};
+    std::string const& s{request("\tselect an option, 0..6")};
     return s.size() == 1 && valid(s) && s[0] < '7' ? atoi(s.c_str()) : option();
 }
 
@@ -138,6 +138,23 @@ std::string& bank::request(std::string&& statement) const noexcept
     std::getline(std::cin, input);
     
     return input;
+}
+
+std::string& bank::trim(std::string& s) const noexcept
+{
+    trim_back(s);
+    trim_front(s);
+    return s;
+}
+
+void bank::trim_back(std::string& s) const noexcept
+{
+    while (s.ends_with(' ')) s.pop_back();
+}
+
+void bank::trim_front(std::string& s) const noexcept
+{
+    while (s.starts_with(' ')) s.erase(0, 1);
 }
 
 void bank::account_not_found() const noexcept
