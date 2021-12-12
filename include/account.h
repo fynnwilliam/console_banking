@@ -10,33 +10,34 @@ class account_builder;
 class account
 {
 private:
-    unsigned id_;
-    double balance_;
-    account_t  type_;
+    unsigned    id_{0};
+    double      balance_{0.0};
+    account_t   type_;
     std::string email_;
     std::string last_name_;
     std::string first_name_;
     
-    void first_name(std::string const&) noexcept;
-    void  last_name(std::string const&) noexcept;
-    void      email(std::string const&) noexcept;
-    void                type(account_t) noexcept;
-    void                   id(unsigned) noexcept;
-    void                balance(double) noexcept;
+    void first_name(std::string const&)   noexcept;
+    void last_name(std::string const&)    noexcept;
+    void email(std::string const&)        noexcept;
+    void type(account_t)                  noexcept;
+    void id(unsigned)                     noexcept;
+    void balance(double)                  noexcept;
 
 public:
     account() = default;
     account(std::string const&, std::string const&);
     
     std::string const& first_name() const noexcept;
-    std::string const&  last_name() const noexcept;
-    std::string const&      email() const noexcept;
-    account_t                type() const noexcept;
-    unsigned                   id() const noexcept;
-    double                balance() const noexcept;
+    std::string const& last_name()  const noexcept;
+    std::string const& email()      const noexcept;
     
-    void  deposit(double) noexcept;
-    void withdraw(double) noexcept;
+    account_t type()                const noexcept;
+    unsigned  id()                  const noexcept;
+    double    balance()             const noexcept;
+    
+    void deposit(double)                  noexcept;
+    void withdraw(double)                 noexcept;
     
     friend std::ofstream& operator<<(std::ofstream&, account const&);
     friend std::ifstream& operator>>(std::ifstream&, account&);
