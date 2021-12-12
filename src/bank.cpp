@@ -149,12 +149,12 @@ std::string& bank::trim(std::string& s) const noexcept
 
 void bank::trim_back(std::string& s) const noexcept
 {
-    while (s.ends_with(' ')) s.pop_back();
+    while (s.ends_with(' ') || s.ends_with('\t')) s.pop_back();
 }
 
 void bank::trim_front(std::string& s) const noexcept
 {
-    while (s.starts_with(' ')) s.erase(0, 1);
+    while (s.starts_with(' ') || s.starts_with('\t')) s.erase(0, 1);
 }
 
 void bank::account_not_found() const noexcept
