@@ -21,4 +21,10 @@ public:
     
     activity(activity_t type, double amount, std::string const& f, std::string const& t)
         : type_{type}, amount_{amount}, from_{f}, to_{t} {}
+    
+    activity_t          name()   const noexcept;
+    clock_t::time_point time()   const noexcept;
+    double              amount() const noexcept;
+    std::string const&  from()   const noexcept;
+    std::string const&  to()     const noexcept;
 };
