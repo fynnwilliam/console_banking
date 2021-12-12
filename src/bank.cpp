@@ -41,7 +41,7 @@ unsigned bank::_new_id() const noexcept
 void bank::check_balance(unsigned id) const noexcept
 {
     if (accounts_.count(id))
-        std::cout << accounts_[id].balance() << '\n';
+        std::cout << "your balance is " << accounts_[id].balance() << '\n';
     else
         account_not_found();
 }
