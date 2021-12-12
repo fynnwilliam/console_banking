@@ -1,19 +1,14 @@
 # console_banking
-A simple banking application for the console.
+A simple banking application - runs in the terminal.
 
 
-you may compile with clang or g++:
-
-
-`g++ -w account.cpp bank.cpp main.cpp -o banking`
-
-
-or
-
-
-`g++ -w *.cpp -o banking`
+To compile, change directory to the cloned files and execute the following commands in the terminal:  
+ `mkdir build`  
+ `cd build`  
+ `cmake ..`  
+ `make slide`
   
 
-then run the program by typing `./banking`
+then run the program by typing `./src/bank`
 
 thank you...
