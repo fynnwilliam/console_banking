@@ -83,6 +83,12 @@ void bank::deprecate_account(unsigned id) noexcept
     accounts_.erase(id);
 }
 
+void bank::archive_account(unsigned id) const noexcept
+{
+    std::ofstream archive{"archive", std::ios::app};
+    archive << accounts_[id];
+}
+
 void bank::close_account() noexcept
 {   
     close_account(id());
