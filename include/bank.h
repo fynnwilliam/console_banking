@@ -11,6 +11,7 @@ private:
     unsigned _new_id() const noexcept;
     unsigned  id()     const noexcept;
     double    amount() const noexcept;
+    int       option() const noexcept;
 
     std::string last_name()  const noexcept;
     std::string first_name() const noexcept;

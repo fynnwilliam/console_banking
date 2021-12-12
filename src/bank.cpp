@@ -97,13 +97,13 @@ bool bank::valid(std::string const& s) const noexcept
 
 unsigned bank::id() const noexcept
 {
-    std::string& input{request("account id")};    
+    std::string const& input{request("account id")};    
     return valid(input) ? std::atol(input.c_str()) : id();
 }
 
 double bank::amount() const noexcept
 {
-    std::string& input{request("amount")};
+    std::string const& input{request("amount")};
     return valid(input) ? std::atol(input.c_str()) : amount();
 }
 
@@ -123,6 +123,12 @@ std::string bank::email() const noexcept
     std::string& input{request("valid email address")};
     
     return std::regex_match(input, pattern) ? std::move(input) : email();
+}
+
+int bank::option() const noexcept
+{
+    std::string const& s{request("\tselect an option, 0 - 6")};
+    return s.size() == 1 && valid(s) && s[0] < '7' ? atoi(s.c_str()) : option();
 }
 
 std::string& bank::request(std::string&& statement) const noexcept
@@ -147,8 +153,8 @@ int bank::inquire() const noexcept
               << "\n\t4. withdraw"
               << "\n\t5. close account"
               << "\n\t6. list accounts"
-              << "\n\t0. exit";
+              << "\n\t0. exit"
+              << "\n\n";
 
-    std::string const& s{request("\n\n\tselect an option")};
-    return s.size() == 1 && valid(s) && s[0] < '7' ? atoi(s.c_str()) : 100;
+    return option();
 }
