@@ -137,7 +137,7 @@ std::string& bank::request(std::string&& statement) const noexcept
     std::cout << statement << ": ";
     std::getline(std::cin, input);
     
-    return input;
+    return trim(input);
 }
 
 std::string& bank::trim(std::string& s) const noexcept
