@@ -145,7 +145,7 @@ void bank::account_not_found() const noexcept
     std::cout << "account not found\n";
 }
 
-int bank::inquire() const noexcept
+int bank::_inquire() const noexcept
 {
     std::cout << "\n\t1. open account"
               << "\n\t2. check balance"
@@ -157,6 +157,12 @@ int bank::inquire() const noexcept
               << "\n\n";
 
     return option();
+}
+
+void bank::inquire() noexcept
+{
+    while (int option = _inquire())
+        deliver(option);
 }
 
 void bank::deliver(int option) noexcept
