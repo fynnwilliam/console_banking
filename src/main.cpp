@@ -2,12 +2,6 @@
 
 int main()
 {
-    bank gcb{database::instance()};
-    
-    while (int option = gcb.inquire())
-        gcb.deliver(option);
-    
-    std::cout << "\n\tnice, have a great day!" << std::endl;
-
+    bank{database::instance()}.inquire();
     return 0;
 }
