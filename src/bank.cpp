@@ -74,7 +74,7 @@ void bank::withdraw() noexcept
 
 void bank::close_account(unsigned id) noexcept
 {
-    accounts_.count(id) ? accounts_.erase(id) : account_not_found();
+    accounts_.count(id) ? deprecate_account(id) : account_not_found();
 }
 
 void bank::deprecate_account(unsigned id) noexcept
