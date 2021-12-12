@@ -9,7 +9,10 @@ private:
 public:
     account_builder(std::string const&, std::string const&);
     
-    operator account() const noexcept { return std::move(account_); }
+    operator account()                        const  noexcept
+    {
+        return std::move(account_); 
+    }
     
     account_builder& email(std::string const&)      noexcept;
     account_builder& last_name(std::string const&)  noexcept;
