@@ -1,5 +1,4 @@
 #pragma once
-#include <string>
 #include <chrono>
 
 #include "activity_t.h"
