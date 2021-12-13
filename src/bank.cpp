@@ -42,7 +42,7 @@ unsigned bank::_new_id() const noexcept
 
 void bank::check_balance(unsigned id) const noexcept
 {
-    if (accounts_.count(id))
+    if (accounts_.contains(id))
         std::cout << "your balance is " << accounts_[id].balance() << '\n';
     else
         account_not_found();
@@ -55,7 +55,7 @@ void bank::check_balance() const noexcept
 
 void bank::deposit(unsigned id, double amount) noexcept
 {
-    accounts_.count(id) ? accounts_[id].deposit(amount) : account_not_found();
+    accounts_.contains(id) ? accounts_[id].deposit(amount) : account_not_found();
 }
 
 void bank::deposit() noexcept
@@ -65,7 +65,7 @@ void bank::deposit() noexcept
 
 void bank::withdraw(unsigned id, double amount) noexcept
 {
-    accounts_.count(id) ? accounts_[id].withdraw(amount) : account_not_found();
+    accounts_.contains(id) ? accounts_[id].withdraw(amount) : account_not_found();
 }
 
 void bank::withdraw() noexcept
@@ -75,7 +75,7 @@ void bank::withdraw() noexcept
 
 void bank::close_account(unsigned id) noexcept
 {
-    accounts_.count(id) ? deprecate_account(id) : account_not_found();
+    accounts_.contains(id) ? deprecate_account(id) : account_not_found();
 }
 
 void bank::deprecate_account(unsigned id) noexcept
@@ -97,9 +97,9 @@ void bank::close_account() noexcept
 
 void bank::list_accounts() const noexcept
 {
-    std::size_t count{};
+    std::size_t contains{};
     for (auto const& [_, acc] : accounts_)
-        std::cout << ++count << '\n' << acc << '\n';
+        std::cout << ++contains << '\n' << acc << '\n';
 }
 
 bool bank::valid(std::string const& s) const noexcept
