@@ -97,9 +97,9 @@ void bank::close_account() noexcept
 
 void bank::list_accounts() const noexcept
 {
-    std::size_t contains{};
+    std::size_t count{};
     for (auto const& [_, acc] : accounts_)
-        std::cout << ++contains << '\n' << acc << '\n';
+        std::cout << ++count << '\n' << acc << '\n';
 }
 
 bool bank::valid(std::string const& s) const noexcept
