@@ -15,11 +15,11 @@ double activity::amount() const noexcept
     return amount_;
 }
 
-std::string const& activity::from() const noexcept
+unsigned activity::from() const noexcept
 {
     return from_;
 }
-std::string const& activity::to() const noexcept
+unsigned activity::to() const noexcept
 {
    return to;
 }

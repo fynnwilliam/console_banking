@@ -25,6 +25,6 @@ public:
     activity_t          name()   const noexcept;
     clock_t::time_point time()   const noexcept;
     double              amount() const noexcept;
-    std::string const&  from()   const noexcept;
-    std::string const&  to()     const noexcept;
+    unsigned            from()   const noexcept;
+    unsigned            to()     const noexcept;
 };
