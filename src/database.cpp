@@ -61,9 +61,9 @@ bool database::empty() const noexcept
     return db_.empty();
 }
 
-bool database::count(unsigned id) const noexcept
+bool database::contains(unsigned id) const noexcept
 {
-    return db_.count(id);
+    return db_.contains(id);
 }
 
 account& database::operator[](unsigned id) noexcept

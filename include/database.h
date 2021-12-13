@@ -31,7 +31,7 @@ public:
     
     ins_itr insert(unsigned, account)           noexcept;
     void    erase(unsigned)                     noexcept;
-    bool    count(unsigned)               const noexcept;
+    bool    contains(unsigned)            const noexcept;
     db_itr  begin()                             noexcept;
     db_citr cbegin()                      const noexcept;
     db_itr  end()                               noexcept;
