@@ -1,6 +1,7 @@
+#include <regex>
+
 #include "bank.h"
 #include "account_builder.h"
-#include <regex>
 
 auto bank::open_account(account_builder&& builder) noexcept
 {
@@ -34,7 +35,7 @@ unsigned bank::_new_id() const noexcept
     
     unsigned a{accounts_.cbegin()->first};
     unsigned b{};
-    if (std::ifstream source{"data"}; source.is_open())
+    if (std::ifstream source{"data", std::ios::in})
         source >> b;
     return std::max(a, b);
 }
