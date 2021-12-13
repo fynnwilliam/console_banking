@@ -112,7 +112,7 @@ bool bank::valid(std::string const& s) const noexcept
 unsigned bank::id() const noexcept
 {
     std::string const& input{request("account id")};    
-    return valid(input) ? std::atol(input.c_str()) : id();
+    return valid(input) ? std::atoi(input.c_str()) : id();
 }
 
 double bank::amount() const noexcept
