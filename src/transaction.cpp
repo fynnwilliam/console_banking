@@ -36,8 +36,3 @@ std::optional<activity> transaction::find(std::uint64_t id) const noexcept
 {
     logs_.contains(id) ? std::make_optional(logs_.at(id)) : std::nullopt;
 }
-
-transaction::~transaction()
-{
-    if (!empty()) write();
-}

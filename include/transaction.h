@@ -21,6 +21,4 @@ public:
     bool empty()                                const noexcept;
     
     std::optional<activity> find(std::uint64_t) const noexcept;
-    
-    ~transaction();
 };
