@@ -10,7 +10,7 @@ std::uint64_t transaction::id() noexcept
 
 void transaction::log(activity&& a) noexcept
 {
-    logs_[id()] = std::move(a);
+    logs_.insert({id(), std::move(a)});
 }
 
 void transaction::read(std::string const& acc_id) noexcept
