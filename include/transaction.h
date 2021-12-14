@@ -8,15 +8,17 @@ class transaction
 private:
     std::unordered_map<std::uint64_t, activity> logs_;
     
-    static std::uint64_t id()    const noexcept;
-    void                 write() const noexcept;
+    static std::uint64_t id()                   const noexcept;
+    void                 write()                const noexcept;
 
 public:
     transaction() = default;
     
-    void log(activity&&)               noexcept;
-    void read()                        noexcept;
-    bool empty()                 const noexcept;
+    void log(activity&&)                              noexcept;
+    void read()                                       noexcept;
+    bool empty()                                const noexcept;
+    
+    std::optional<activity> find(std::uint64_t) const noexcept;
     
     ~transaction();
 };
