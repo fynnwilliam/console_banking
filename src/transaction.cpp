@@ -18,7 +18,11 @@ void transaction::read(std::string const& acc_id) noexcept
     std::ifstream file{acc_id, std::ios::in};
     std::uint64_t t_id{}; activity act{{}, {}};
     
-    while (file >> t_id >> act) logs_.insert({t_id, std::move(act)});
+    while (file >> t_id)
+    {
+        file >> act;
+        logs_.insert({t_id, std::move(act)});
+    }
 }
 
 void transaction::write(std::string const& acc_id) const noexcept
