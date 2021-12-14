@@ -118,9 +118,7 @@ unsigned bank::id() const noexcept
 double bank::amount() const noexcept
 {
     std::string const& input{request("amount")};
-    double value{};
-
-    return valid(input) && (value = std::atol(input.c_str())) ? value : amount();
+    return valid(input) ? std::atol(input.c_str()) : amount();
 }
 
 std::string bank::first_name() const noexcept
