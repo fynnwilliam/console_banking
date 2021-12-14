@@ -15,6 +15,9 @@ void transaction::read() noexcept
 
 void transaction::write() const noexcept
 {
+    std::ifstream file{"", std::ios::trunc};
+    for (auto const& [id, act] : logs_)
+        file << id << '\n' << act;
 }
 
 bool transaction::empty() const noexcept
