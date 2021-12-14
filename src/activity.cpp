@@ -33,6 +33,13 @@ std::ifstream& operator>>(std::ifstream& ifs, activity& act)
     return ifs;
 }
 
+std::istream& operator>>(std::istream& ifs, activity& act)
+{
+    return ifs >> act.amount_
+               >> act.from_
+               >> act.to_;
+}
+
 std::ofstream& operator<<(std::ofstream& ofs, activity const& act)
 {
     ofs << act.amount() << '\n'
