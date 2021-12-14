@@ -18,11 +18,7 @@ void database::read_from_file() noexcept
     std::ifstream file{"data"};
     account acc{};
     
-    while (file.is_open() && !file.eof())
-    {
-        file >> acc;
-        insert(acc.id(), acc);
-    }
+    while (file >> acc) insert(acc.id(), acc);
 }
 
 std::optional<account> database::find(unsigned id) const noexcept
