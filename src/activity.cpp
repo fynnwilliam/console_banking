@@ -46,6 +46,6 @@ std::ostream&  operator<<(std::ostream& os, activity const& act)
 {
     return os << act.amount()
               << act.from()
-              << act.to()
+              << act.to();
               
 }
