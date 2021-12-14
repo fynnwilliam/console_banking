@@ -3,5 +3,6 @@
 enum class activity_t
 {
     received,
-    sent
+    sent,
+    withdrew
 };
