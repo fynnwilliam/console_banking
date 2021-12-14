@@ -63,12 +63,11 @@ void bank::deposit() noexcept
     deposit(id(), amount());
 }
 
-void bank::withdraw(unsigned id, double amount) noexcept
+void bank::withdraw(unsigned id, double amt) noexcept
 {
-    auto acc{accounts_.find(id)};
-    
-    acc && acc->get().withdrawable(amount) ? acc->get().withdraw(amount)
-                                           : account_not_found();
+    if (auto acc{accounts_find(id)}; acc)
+        acc->get().withdrawable(amt) ? acc->get().withdraw(amt) : insuficient_funds();
+    else account_not_fount();
 }
 
 void bank::withdraw() noexcept
