@@ -74,6 +74,7 @@ double account::balance() const noexcept
 void account::deposit(double amount) noexcept
 {
     balance_ += amount;
+    logs_.log({activity_t::received, amount});
 }
 
 void account::withdraw(double amount) noexcept
