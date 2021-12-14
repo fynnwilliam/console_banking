@@ -80,6 +80,7 @@ void account::deposit(double amount) noexcept
 void account::withdraw(double amount) noexcept
 {
     balance_ -= amount;
+    logs_.log({activity_t::withdrew, amount});
 }
 
 bool account::withdrawable(double amount) const noexcept
