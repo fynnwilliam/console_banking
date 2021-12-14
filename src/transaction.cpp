@@ -11,7 +11,10 @@ void transaction::log(activity&& a) noexcept
 
 void transaction::read() noexcept
 {
-    std::
+    std::ifstream file{"", std::ios::in};
+    std::uint64_t id{}; activity act{{}, {}};
+    while (file >> id >> act)
+        logs_[id] = std::move(act);
 }
 
 void transaction::write() const noexcept
