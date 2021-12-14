@@ -114,6 +114,7 @@ std::ifstream& operator>>(std::ifstream& ifs, account& acc)
         >> acc.first_name_
         >> acc.email_
         >> acc.balance_;
+           acc.read_logs();
 
     return ifs;
 }
