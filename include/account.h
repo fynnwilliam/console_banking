@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-#include <string>
 
 #include "transaction.h"
 #include "account_t.h"
