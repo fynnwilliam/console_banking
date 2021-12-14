@@ -7,7 +7,6 @@ class transaction
 {
 private:
     std::unordered_map<std::uint64_t, activity> logs_;
-    std::uint64_t id_;
     
     static std::uint64_t new_id() const noexcept;
     void                 write()  const noexcept;
