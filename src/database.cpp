@@ -23,7 +23,10 @@ void database::read_from_file() noexcept
 
 std::optional<account> database::find(unsigned id) const noexcept
 {
-    return db_.count(id) ? std::make_optional(db_.at(id)) : std::nullopt;
+    if (auto const& itr{db_.find(id)}; itr != cend())
+        return std::make_optional(itr->second);
+
+    return std::nullopt;
 }
 
 database::acc_ref database::find(unsigned id) noexcept
@@ -34,7 +37,7 @@ database::acc_ref database::find(unsigned id) noexcept
         return database::acc_ref{acc};
     }
     
-    return std::nullopt;       
+    return std::nullopt;
 }
 
 void database::erase(unsigned id) noexcept
