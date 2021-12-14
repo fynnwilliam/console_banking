@@ -21,7 +21,7 @@ unsigned activity::from() const noexcept
 }
 unsigned activity::to() const noexcept
 {
-   return to;
+   return to_;
 }
 
 std::ifstream& operator>>(std::ifstream& ifs, activity& act)
