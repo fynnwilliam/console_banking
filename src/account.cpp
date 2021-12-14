@@ -79,9 +79,7 @@ void account::deposit(double amount) noexcept
 
 void account::withdraw(double amount) noexcept
 {
-    if (withdrawable(amount)) balance_ -= amount;
-    else
-        std::cout << "could not perform withdraw - insuficient funds\n";
+    balance_ -= amount;
 }
 
 bool account::withdrawable(double amount) const noexcept
