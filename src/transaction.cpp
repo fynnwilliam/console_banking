@@ -3,7 +3,7 @@
 
 #include "transactions.h"
 
-std::uint64_t transaction::id() const noexcept
+std::uint64_t transaction::id() noexcept
 {
 }
 

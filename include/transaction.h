@@ -10,7 +10,7 @@ class transaction
 private:
     std::unordered_map<std::uint64_t, activity> logs_;
     
-    static std::uint64_t id()                   const noexcept;
+    static std::uint64_t id()                         noexcept;
 
 public:
     transaction() = default;
