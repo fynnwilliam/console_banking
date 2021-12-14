@@ -15,7 +15,7 @@ void database::write_to_file() const noexcept
 
 void database::read_from_file() noexcept
 {
-    std::ifstream file{"data"};
+    std::ifstream file{"data", std::ios::in};
     account acc{};
     
     while (file >> acc) insert(acc.id(), acc);
