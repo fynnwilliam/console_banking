@@ -91,8 +91,7 @@ void account::read_logs() noexcept
 
 void account::write_logs() const noexcept
 {
-    if (!transactions_.empty())
-        transactions_.write(std::to_string(id()));
+    if (!logs_.empty()) logs_.write(std::to_string(id()));
 }
 
 std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
