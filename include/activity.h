@@ -13,8 +13,8 @@ private:
     activity_t          type_;
     clock_t::time_point time_{clock_t::now()};
     double              amount_;
-    unsigned            from_;
-    unsigned            to_;
+    unsigned            from_{0};
+    unsigned            to_{0};
     
 public:
     activity(activity_t type, double amount)
