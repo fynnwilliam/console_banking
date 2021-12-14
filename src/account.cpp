@@ -97,6 +97,7 @@ std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
         << acc.first_name() << '\n'
         << acc.email()      << '\n'
         << acc.balance()    << '\n';
+           acc.write_logs();
 
      return ofs;
 }
