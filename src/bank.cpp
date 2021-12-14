@@ -111,11 +111,7 @@ bool bank::inspect(std::string const& input) const noexcept
 
 bool bank::valid(std::string const& s) const noexcept
 {    
-    if (s.size() == 1 && s[0] == '0') return false;
-
-    for (char c : s)
-        if (!std::isdigit(c)) return false;
-    return true;
+    return s.size() == 1 && s[0] == '0' ? false : inspect(s);
 }
 
 unsigned bank::id() const noexcept
