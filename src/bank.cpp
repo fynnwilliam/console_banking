@@ -42,8 +42,8 @@ unsigned bank::_new_id() const noexcept
 
 void bank::check_balance(unsigned id) const noexcept
 {
-    if (accounts_.contains(id))
-        std::cout << "your balance is " << accounts_[id].balance() << '\n';
+    if (std::optional<account> acc{accounts_.find(id)}; acc)
+        std::cout << "your balance is " << acc->balance() << '\n';
     else
         account_not_found();
 }
@@ -55,7 +55,8 @@ void bank::check_balance() const noexcept
 
 void bank::deposit(unsigned id, double amount) noexcept
 {
-    accounts_.contains(id) ? accounts_[id].deposit(amount) : account_not_found();
+    auto acc{accounts_.find(id)};
+    acc ? acc->get().deposit(amount) : account_not_found();
 }
 
 void bank::deposit() noexcept
