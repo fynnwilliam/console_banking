@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 
+#include "transaction.h"
 #include "account_t.h"
 
 class account_builder;
@@ -11,11 +12,12 @@ class account
 {
 private:
     unsigned    id_{0};
-    double      balance_{0.0};
     account_t   type_;
+    double      balance_{0.0};
     std::string email_;
     std::string last_name_;
     std::string first_name_;
+    transaction transactions_;
     
     void first_name(std::string const&)   noexcept;
     void last_name(std::string const&)    noexcept;
