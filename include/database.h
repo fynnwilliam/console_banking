@@ -36,6 +36,7 @@ public:
     db_citr cbegin()                      const noexcept;
     db_itr  end()                               noexcept;
     db_citr cend()                        const noexcept;
+    db_itr  find(unsigned)                      noexcept;
     bool    empty()                       const noexcept;
     account&         operator[](unsigned)       noexcept;
     account const&   operator[](unsigned) const noexcept;

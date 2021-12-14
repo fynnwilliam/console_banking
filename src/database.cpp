@@ -26,6 +26,11 @@ std::optional<account> database::find(unsigned id) const noexcept
     return db_.count(id) ? std::make_optional(db_.at(id)) : std::nullopt;
 }
 
+database::db_itr database::find(unsigned id) noexcept
+{
+    return db_.find(id);
+}
+
 void database::erase(unsigned id) noexcept
 {
     std::scoped_lock{mtx_};
