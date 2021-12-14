@@ -86,7 +86,7 @@ void account::withdraw(double amount) noexcept
 
 void account::read_logs() noexcept
 {
-    transactions_.read(std::to_string(id()));
+    logs_.read(std::to_string(id()));
 }
 
 void account::write_logs() const noexcept
