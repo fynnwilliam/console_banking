@@ -26,4 +26,8 @@ public:
     double              amount() const noexcept;
     unsigned            from()   const noexcept;
     unsigned            to()     const noexcept;
+    
+    friend std::ofstream& operator>>(std::ofstream&, activity const&);
+    friend std::ifstream& operator<<(std::ifstream&, activity&);
+    friend std::ostream&  operator<<(std::ostream& , activity const&);
 };
