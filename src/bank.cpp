@@ -65,9 +65,9 @@ void bank::deposit() noexcept
 
 void bank::withdraw(unsigned id, double amt) noexcept
 {
-    if (auto acc{accounts_find(id)}; acc)
+    if (auto acc{accounts_.find(id)}; acc)
         acc->get().withdrawable(amt) ? acc->get().withdraw(amt) : low_funds();
-    else account_not_fount();
+    else account_not_found();
 }
 
 void bank::low_funds() const noexcept
