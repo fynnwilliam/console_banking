@@ -26,7 +26,10 @@ unsigned activity::to() const noexcept
 
 std::ifstream& operator>>(std::ifstream& ifs, activity& act)
 {
-    ifs >> amount_ >> from_ >> to_;
+    ifs >> act.amount_
+        >> act.from_
+        >> act.to_;
+        
     return ifs;
 }
 
