@@ -16,7 +16,7 @@ private:
     std::string email_;
     std::string last_name_;
     std::string first_name_;
-    transaction transactions_;
+    transaction logs_;
     
     void first_name(std::string const&)   noexcept;
     void last_name(std::string const&)    noexcept;
