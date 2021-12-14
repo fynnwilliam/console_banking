@@ -23,3 +23,17 @@ unsigned activity::to() const noexcept
 {
    return to;
 }
+
+std::ifstream& operator>>(std::ifstream& ifs, activity& act)
+{
+    ifs >> amount_ >> from_ >> to_;
+    return ifs;
+}
+
+std::ofstream& operator<<(std::ofstream&, activity const&)
+{
+}
+
+std::ostream&  operator<<(std::ostream& , activity const&)
+{
+}
