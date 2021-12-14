@@ -6,6 +6,7 @@ std::uint64_t transaction::id() const noexcept
 
 void transaction::log(activity&& a) noexcept
 {
+    logs_[id()] = std::move(a);
 }
 
 void transaction::read() noexcept
