@@ -5,7 +5,7 @@ activity_t activity::name() const noexcept
     return type_;
 }
 
-clock_t::time_point activity::time() const noexcept
+activity::clock_t::time_point activity::time() const noexcept
 {
     return time_;
 }
