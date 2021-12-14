@@ -42,6 +42,10 @@ std::ofstream& operator<<(std::ofstream& ofs, activity const& act)
     return ofs;
 }
 
-std::ostream&  operator<<(std::ostream& , activity const&)
+std::ostream&  operator<<(std::ostream& os, activity const& act)
 {
+    return os << act.amount()
+              << act.from()
+              << act.to()
+              
 }
