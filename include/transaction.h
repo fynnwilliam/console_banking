@@ -14,7 +14,7 @@ public:
     transaction() = default;
     
     void log(activity&&)                              noexcept;
-    void read(unsigned)                               noexcept;
+    void read(std::string const&)                     noexcept;
     void write(std::string const&)              const noexcept;
     bool empty()                                const noexcept;
     
