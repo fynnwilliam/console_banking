@@ -44,8 +44,8 @@ std::ofstream& operator<<(std::ofstream& ofs, activity const& act)
 
 std::ostream&  operator<<(std::ostream& os, activity const& act)
 {
-    return os << act.amount()
-              << act.from()
-              << act.to();
+    return os << act.amount() << '\n'
+              << act.from()   << '\n'
+              << act.to()     << '\n';
               
 }
