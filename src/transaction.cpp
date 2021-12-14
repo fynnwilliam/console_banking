@@ -20,8 +20,8 @@ void transaction::read(std::string const& acc_id) noexcept
 void transaction::write(std::string const& acc_id) const noexcept
 {
     std::ofstream file{acc_id, std::ios::trunc};
-    for (auto const& [id, act] : logs_)
-        file << id << '\n' << act;
+    for (auto const& [t_id, act] : logs_)
+        file << t_id << '\n' << act;
 }
 
 bool transaction::empty() const noexcept
