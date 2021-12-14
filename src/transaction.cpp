@@ -19,7 +19,7 @@ void transaction::read(unsigned acc_id) noexcept
 
 void transaction::write(std::string const& acc_id) const noexcept
 {
-    std::ofstream file{"", std::ios::trunc};
+    std::ofstream file{acc_id, std::ios::trunc};
     for (auto const& [id, act] : logs_)
         file << id << '\n' << act;
 }
