@@ -4,7 +4,7 @@
 
 std::uint64_t transaction::id() noexcept
 {
-    static std::uint64_t t_id{_id()};
+    static std::uint64_t t_id{};
     return ++t_id;
 }
 
