@@ -15,7 +15,7 @@ public:
     
     void log(activity&&)                              noexcept;
     void read(unsigned)                               noexcept;
-    void write()                                const noexcept;
+    void write(std::string const&)              const noexcept;
     bool empty()                                const noexcept;
     
     std::optional<activity> find(std::uint64_t) const noexcept;

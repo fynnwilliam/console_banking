@@ -17,7 +17,7 @@ void transaction::read(unsigned acc_id) noexcept
     while (file >> t_id >> act) logs_[t_id] = std::move(act);
 }
 
-void transaction::write() const noexcept
+void transaction::write(std::string const& acc_id) const noexcept
 {
     std::ofstream file{"", std::ios::trunc};
     for (auto const& [id, act] : logs_)
