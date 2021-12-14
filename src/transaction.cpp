@@ -11,11 +11,12 @@ void transaction::log(activity&& a) noexcept
 
 void transaction::read() noexcept
 {
+    std::
 }
 
 void transaction::write() const noexcept
 {
-    std::ifstream file{"", std::ios::trunc};
+    std::ofstream file{"", std::ios::trunc};
     for (auto const& [id, act] : logs_)
         file << id << '\n' << act;
 }
@@ -34,4 +35,3 @@ transaction::~transaction()
 {
     if (!empty()) write();
 }
-
