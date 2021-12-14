@@ -16,6 +16,7 @@ public:
     
     void log(activity&&)               noexcept;
     void read()                        noexcept;
+    bool empty()                 const noexcept;
     
     ~transaction();
 };
