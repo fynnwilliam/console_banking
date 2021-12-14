@@ -26,9 +26,15 @@ std::optional<account> database::find(unsigned id) const noexcept
     return db_.count(id) ? std::make_optional(db_.at(id)) : std::nullopt;
 }
 
-database::db_itr database::find(unsigned id) noexcept
+database::acc_ref database::find(unsigned id) noexcept
 {
-    return db_.find(id);
+    if (auto itr{db_.find(id)}; itr != end())
+    {
+        static account& acc = itr->second;
+        return database::acc_ref{acc};
+    }
+    
+    return std::nullopt;       
 }
 
 void database::erase(unsigned id) noexcept

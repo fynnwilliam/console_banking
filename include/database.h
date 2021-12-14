@@ -2,6 +2,7 @@
 #include <unordered_map>
 #include <optional>
 #include <mutex>
+#include <functional>
 
 #include "account.h"
 
@@ -28,6 +29,7 @@ public:
     typedef decltype(db_.cbegin())  db_citr;
     typedef decltype(db_.begin())    db_itr;
     typedef std::pair<db_itr, bool> ins_itr;
+    typedef std::optional<std::reference_wrapper<account>> acc_ref;
     
     ins_itr insert(unsigned, account)           noexcept;
     void    erase(unsigned)                     noexcept;
@@ -36,8 +38,8 @@ public:
     db_citr cbegin()                      const noexcept;
     db_itr  end()                               noexcept;
     db_citr cend()                        const noexcept;
-    db_itr  find(unsigned)                      noexcept;
     bool    empty()                       const noexcept;
+    acc_ref find(unsigned)                      noexcept;
     account&         operator[](unsigned)       noexcept;
     account const&   operator[](unsigned) const noexcept;
     std::optional<account> find(unsigned) const noexcept;
