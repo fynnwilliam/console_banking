@@ -37,7 +37,7 @@ std::ofstream& operator<<(std::ofstream& ofs, activity const& act)
 {
     ofs << act.amount()
         << act.from()
-        << act.to()
+        << act.to();
         
     return ofs;
 }
