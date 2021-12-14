@@ -70,6 +70,11 @@ void bank::withdraw(unsigned id, double amt) noexcept
     else account_not_fount();
 }
 
+void bank::low_funds() const noexcept
+{
+    std::cout << "could not withdraw amount - insufficient funds\n";
+}
+
 void bank::withdraw() noexcept
 {
     withdraw(id(), amount());

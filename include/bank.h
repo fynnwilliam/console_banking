@@ -29,6 +29,7 @@ private:
     std::string email()                 const noexcept;
     
     void account_not_found()            const noexcept;
+    void low_funds()                    const noexcept;
     bool valid(std::string const&)      const noexcept;
     bool inspect(std::string const&)    const noexcept;
     void check_balance(unsigned)        const noexcept;
