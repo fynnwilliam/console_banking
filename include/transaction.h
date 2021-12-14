@@ -1,5 +1,7 @@
 #pragma once
 #include <unordered_map>
+#include <string>
+#include <optional>
 
 #include "activity_t.h"
 

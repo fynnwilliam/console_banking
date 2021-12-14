@@ -1,3 +1,6 @@
+#include <fstream>
+#include <utility>
+
 #include "transactions.h"
 
 std::uint64_t transaction::id() const noexcept
