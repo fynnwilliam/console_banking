@@ -39,6 +39,7 @@ public:
     
     void deposit(double)                  noexcept;
     void withdraw(double)                 noexcept;
+    bool withdrawable(double)       const noexcept;
     
     friend std::ofstream& operator<<(std::ofstream&, account const&);
     friend std::ifstream& operator>>(std::ifstream&, account&);

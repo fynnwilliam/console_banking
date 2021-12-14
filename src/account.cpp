@@ -85,6 +85,11 @@ void account::withdraw(double amount) noexcept
         std::cout << "could not perform withdraw - insuficient funds\n";
 }
 
+bool account::withdrawable(double amount) const noexcept
+{
+    return amount <= balance() - 100;
+}
+
 void account::read_logs() noexcept
 {
     logs_.read(std::to_string(id()));
