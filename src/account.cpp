@@ -84,6 +84,12 @@ void account::withdraw(double amount) noexcept
         std::cout << "could not perform withdraw - insuficient funds\n";
 }
 
+void account::write_logs() const noexcept
+{
+    if (!transactions_.empty())
+        transactions_.write(std::to_string(id()));
+}
+
 std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
 {
     ofs << acc.id()         << '\n'

@@ -24,6 +24,7 @@ private:
     void type(account_t)                  noexcept;
     void id(unsigned)                     noexcept;
     void balance(double)                  noexcept;
+    void write_logs()              const  noexcept;
 
 public:
     account() = default;
