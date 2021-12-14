@@ -4,6 +4,8 @@
 
 std::uint64_t transaction::id() noexcept
 {
+    static std::uint64_t t_id{};
+    return ++t_id;
 }
 
 void transaction::log(activity&& a) noexcept
