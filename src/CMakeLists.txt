@@ -1,5 +1,11 @@
+add_library(activity activity.cpp)
+target_include_directories(activity PUBLIC ../include)
+
+add_library(transaction transaction.cpp)
+target_link_libraries(transaction PUBLIC activity)
+
 add_library(account account.cpp)
-target_include_directories(account PUBLIC ../include)
+target_link_libraries(account PUBLIC transaction)
 
 add_library(account_builder account_builder.cpp)
 target_include_directories(account_builder PUBLIC ../include)
