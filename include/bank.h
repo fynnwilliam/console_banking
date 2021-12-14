@@ -30,6 +30,7 @@ private:
     
     void account_not_found()            const noexcept;
     bool valid(std::string const&)      const noexcept;
+    bool inspect(std::string const&)    const noexcept;
     void check_balance(unsigned)        const noexcept;
     void deposit(unsigned, double)            noexcept;
     void withdraw(unsigned, double)           noexcept;

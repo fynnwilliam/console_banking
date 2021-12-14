@@ -102,8 +102,15 @@ void bank::list_accounts() const noexcept
         std::cout << ++count << '\n' << acc << '\n';
 }
 
-bool bank::valid(std::string const& s) const noexcept
+bool bank::inspect(std::string const& input) const noexcept
 {
+    for (char c : input)
+        if (!std::isdigit(c)) return false;
+    return true;
+}
+
+bool bank::valid(std::string const& s) const noexcept
+{    
     if (s.size() == 1 && s[0] == '0') return false;
 
     for (char c : s)
