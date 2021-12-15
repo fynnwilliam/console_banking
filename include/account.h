@@ -19,6 +19,7 @@ private:
     void first_name(std::string const&)   noexcept;
     void last_name(std::string const&)    noexcept;
     void email(std::string const&)        noexcept;
+    void _list_transactions()       const noexcept;
     void type(account_t)                  noexcept;
     void id(unsigned)                     noexcept;
     void balance(double)                  noexcept;
