@@ -20,9 +20,8 @@ public:
     static database& instance()                 noexcept
     {
         static database db{};
-        // static std::once_flag once;
-        // std::call_once(once, [&] { db.read_from_file(); });
         if (db.empty()) db.read_from_file();
+        
         return db;
     }
 
