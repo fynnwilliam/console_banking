@@ -116,6 +116,12 @@ void bank::list_transactions() const noexcept
         acc.list_transactions();
 }
 
+void bank::list_transactions(unsigned id) const noexcept
+{
+    std::optional<account> acc{accounts_.find(id)};
+    acc ? acc->list_transactions() : account_not_found();
+}
+
 bool bank::inspect(std::string const& input) const noexcept
 {
     for (char c : input)
