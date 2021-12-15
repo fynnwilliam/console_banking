@@ -25,7 +25,6 @@ private:
     void read_logs()                      noexcept;
     void write_logs()               const noexcept;
     
-    void list_transactions()        const noexcept;
 
 public:
     account() = default;
@@ -39,6 +38,7 @@ public:
     unsigned  id()                  const noexcept;
     double    balance()             const noexcept;
     
+    void list_transactions()        const noexcept;
     void deposit(double)                  noexcept;
     void withdraw(double)                 noexcept;
     bool withdrawable(double)       const noexcept;
