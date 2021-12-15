@@ -12,6 +12,8 @@ private:
     
     static std::uint64_t id()                         noexcept;
     static std::uint64_t _id()                        noexcept;
+    
+    void save_last_id()                         const noexcept;
 
 public:
     transaction() = default;

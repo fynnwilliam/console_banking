@@ -15,6 +15,13 @@ std::uint64_t transaction::_id() noexcept
         source >> id;
     return id;
 }
+
+void transaction::save_last_id() const noexcept
+{
+    if (std::ofstream source{"id", std::ios::trunc})
+        source << id();
+}
+
 void transaction::log(activity&& a) noexcept
 {
     logs_.insert({id(), std::move(a)});
