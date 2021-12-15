@@ -31,7 +31,7 @@ database::acc_ref database::find(unsigned id) noexcept
 {
     if (auto itr{db_.find(id)}; itr != end())
     {
-        static account& acc = itr->second;
+        account& acc = itr->second;
         return database::acc_ref{acc};
     }
     
