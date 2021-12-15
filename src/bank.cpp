@@ -110,6 +110,12 @@ void bank::list_accounts() const noexcept
         std::cout << ++count << '\n' << acc << '\n';
 }
 
+void bank::list_transactions() const noexcept
+{
+    for (auto const& [_, acc] : accounts_)
+        acc.list_transactions();
+}
+
 bool bank::inspect(std::string const& input) const noexcept
 {
     for (char c : input)

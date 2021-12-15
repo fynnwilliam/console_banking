@@ -14,6 +14,7 @@ private:
     int       option()                  const noexcept;
     
     void list_accounts()                const noexcept;
+    void list_transactions()            const noexcept;
     void check_balance()                const noexcept;
     void close_account()                      noexcept;
     void withdraw()                           noexcept;
