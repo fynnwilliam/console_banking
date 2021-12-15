@@ -11,6 +11,7 @@ private:
     std::unordered_map<std::uint64_t, activity> logs_;
     
     static std::uint64_t id()                         noexcept;
+    static std::uint64_t _id()                        noexcept;
 
 public:
     transaction() = default;

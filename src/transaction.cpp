@@ -8,6 +8,13 @@ std::uint64_t transaction::id() noexcept
     return ++t_id;
 }
 
+std::uint64_t transaction::_id() noexcept
+{
+    std::uint64_t id{};
+    if (std::ifstream source{"id", std::ios::in})
+        source >> id;
+    return id;
+}
 void transaction::log(activity&& a) noexcept
 {
     logs_.insert({id(), std::move(a)});
