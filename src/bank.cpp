@@ -165,7 +165,7 @@ std::string bank::email() const noexcept
 
 int bank::option() const noexcept
 {
-    std::string const& s{request("\tselect an option, 0..6")};
+    std::string const& s{request("\tselect an option, 0..7")};
     return s.size() == 1 && s[0] >= '0' && s[0] < '8' ? atoi(s.c_str()) : option();
 }
 
