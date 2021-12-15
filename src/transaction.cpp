@@ -13,7 +13,7 @@ std::uint64_t transaction::_id() noexcept
     std::uint64_t id{};
     if (std::ifstream source{"id", std::ios::in})
         source >> id;
-    return id;
+    return --id;
 }
 
 void transaction::save_last_id() const noexcept
