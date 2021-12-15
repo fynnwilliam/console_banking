@@ -25,7 +25,7 @@ private:
     void balance(double)                  noexcept;
     void read_logs()                      noexcept;
     void write_logs()               const noexcept;
-    
+    void no_activity()              const noexcept;
 
 public:
     account() = default;

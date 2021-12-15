@@ -99,6 +99,11 @@ void account::_list_transactions() const noexcept
         std::cout << "transaction id: " << t_id << '\n' << act;
 }
 
+void account::no_activity() const noexcept
+{
+    std::cout << "no activities yet\n";
+}
+
 void account::read_logs() noexcept
 {
     logs_.read(std::to_string(id()));
