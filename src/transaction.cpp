@@ -56,3 +56,23 @@ std::optional<activity> transaction::find(std::uint64_t id) const noexcept
     auto const& act{logs_.find(id)};
     return act != logs_.end() ? std::make_optional(act->second) : std::nullopt;
 }
+
+transaction::t_itr transaction::begin() noexcept
+{
+    return logs_.begin();
+}
+
+transaction::t_citr transaction::begin() const noexcept
+{
+    return logs_.cbegin();
+}
+
+transaction::t_itr transaction::end() noexcept
+{
+    return logs_.end();
+}
+
+transaction::t_citr transaction::end() const noexcept
+{
+    return logs_.cend();
+}
