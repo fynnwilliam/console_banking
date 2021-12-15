@@ -23,7 +23,9 @@ private:
     void id(unsigned)                     noexcept;
     void balance(double)                  noexcept;
     void read_logs()                      noexcept;
-    void write_logs()              const  noexcept;
+    void write_logs()               const noexcept;
+    
+    void list_transactions()        const noexcept;
 
 public:
     account() = default;

@@ -88,6 +88,12 @@ bool account::withdrawable(double amount) const noexcept
     return amount <= balance() - 100;
 }
 
+void account::list_transactions() const noexcept
+{
+    for (auto const& [t_id, act] : logs_)
+        std::cout << "transaction id: " << t_id << '\n' << act;
+}
+
 void account::read_logs() noexcept
 {
     logs_.read(std::to_string(id()));
