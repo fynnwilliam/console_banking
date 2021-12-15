@@ -112,8 +112,7 @@ void bank::list_accounts() const noexcept
 
 void bank::list_transactions() const noexcept
 {
-    for (auto const& [_, acc] : accounts_)
-        acc.list_transactions();
+    list_transactions(id());
 }
 
 void bank::list_transactions(unsigned id) const noexcept
