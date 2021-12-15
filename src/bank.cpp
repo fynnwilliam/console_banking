@@ -203,6 +203,7 @@ int bank::_inquire() const noexcept
               << "\n\t4. withdraw"
               << "\n\t5. close account"
               << "\n\t6. list accounts"
+              << "\n\t7. list transactions"
               << "\n\t0. exit"
               << "\n\n";
 
