@@ -23,10 +23,8 @@ void database::read_from_file() noexcept
 
 std::optional<account> database::find(unsigned id) const noexcept
 {
-    if (auto const& itr{db_.find(id)}; itr != cend())
-        return std::make_optional(itr->second);
-
-    return std::nullopt;
+    auto const& itr{db_.find(id)};
+    return itr != cend() ? std::make_optional(itr->second) : std::nullopt;
 }
 
 database::acc_ref database::find(unsigned id) noexcept
