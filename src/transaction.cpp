@@ -50,5 +50,6 @@ bool transaction::empty() const noexcept
 
 std::optional<activity> transaction::find(std::uint64_t id) const noexcept
 {
-    return logs_.contains(id) ? std::make_optional(logs_.at(id)) : std::nullopt;
+    auto const& act{logs_.find(id)};
+    return act != logs_.end() ? std::make_optional(act->second) : std::nullopt;
 }
