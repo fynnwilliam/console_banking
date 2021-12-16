@@ -7,3 +7,9 @@ std::uint64_t id_generator::read_id() noexcept
         source >> id;
     return id;
 }
+
+void id_generator::save_last_id() const noexcept
+{
+    if (std::ofstream source{"id", std::ios::trunc})
+        source << id_.load();
+}
