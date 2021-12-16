@@ -1,8 +1,11 @@
 add_library(activity activity.cpp)
 target_include_directories(activity PUBLIC ../include)
 
+add_library(id_gen id_generator.cpp)
+target_include_directories(id_gen PUBLIC ../include)
+
 add_library(transaction transaction.cpp)
-target_link_libraries(transaction PUBLIC activity)
+target_link_libraries(transaction PUBLIC activity id_gen)
 
 add_library(account account.cpp)
 target_link_libraries(account PUBLIC transaction)
