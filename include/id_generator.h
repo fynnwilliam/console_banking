@@ -13,7 +13,7 @@ private:
 public:
     static id_generator& instance()   noexcept
     {
-        static id_generator id{};
+        static id_generator id{read_id()};
         return id;
     }
     
