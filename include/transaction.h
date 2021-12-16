@@ -10,11 +10,6 @@ class transaction
 private:
     std::unordered_map<std::uint64_t, activity> logs_;
     
-    static std::uint64_t id()                           noexcept;
-    static std::uint64_t _id()                          noexcept;
-    
-    void save_last_id()                           const noexcept;
-    
     typedef decltype(logs_.cbegin()) t_citr;
     typedef decltype(logs_.begin())   t_itr;
 

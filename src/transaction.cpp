@@ -2,26 +2,6 @@
 
 #include "transaction.h"
 
-std::uint64_t transaction::id() noexcept
-{
-    static std::uint64_t t_id{_id()};
-    return ++t_id;
-}
-
-std::uint64_t transaction::_id() noexcept
-{
-    std::uint64_t id{};
-    if (std::ifstream source{"id", std::ios::in})
-        source >> id;
-    return id;
-}
-
-void transaction::save_last_id() const noexcept
-{
-    if (std::ofstream source{"id", std::ios::trunc})
-        source << id() - 1;
-}
-
 void transaction::log(activity&& a) noexcept
 {
     logs_.insert({id(), std::move(a)});
