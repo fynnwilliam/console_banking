@@ -4,11 +4,13 @@
 #include <optional>
 
 #include "activity.h"
+#include "id_generator.h"
 
 class transaction
 {
 private:
     std::unordered_map<std::uint64_t, activity> logs_;
+    id_generator& id_{id_generator::instance()};
     
     typedef decltype(logs_.cbegin()) t_citr;
     typedef decltype(logs_.begin())   t_itr;
