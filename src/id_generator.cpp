@@ -13,3 +13,8 @@ void id_generator::save_last_id() const noexcept
     if (std::ofstream source{"id", std::ios::trunc})
         source << id_.load();
 }
+
+std::uint64_t id_generator::operator++() noexcept
+{
+    return ++id_;
+}
