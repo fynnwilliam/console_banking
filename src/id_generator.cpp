@@ -23,3 +23,8 @@ std::uint64_t id_generator::operator++(int) noexcept
 {
     return id_++;
 }
+
+id_generator::~id_generator()
+{
+    save_last_id();
+}
