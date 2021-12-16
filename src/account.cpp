@@ -90,6 +90,7 @@ bool account::withdrawable(double amount) const noexcept
 
 void account::list_transactions() const noexcept
 {
+    read_logs();
     !logs_.empty() ? _list_transactions() : no_activity();
 }
 
