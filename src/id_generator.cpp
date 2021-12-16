@@ -18,3 +18,8 @@ std::uint64_t id_generator::operator++() noexcept
 {
     return ++id_;
 }
+
+std::uint64_t id_generator::operator++(int) noexcept
+{
+    return id_++;
+}

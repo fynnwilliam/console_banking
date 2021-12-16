@@ -18,6 +18,7 @@ public:
     }
     
     std::uint64_t operator++()           noexcept;
+    std::uint64_t operator++(int)        noexcept;
     
     ~id_generator() { save_last_id(); }
 };
