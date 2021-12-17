@@ -44,10 +44,11 @@ public:
     void withdraw(double)                 noexcept;
     bool withdrawable(double)       const noexcept;
     
-    friend std::ofstream& operator<<(std::ofstream&, account const&);
     friend std::ifstream& operator>>(std::ifstream&, account&);
     friend std::ostream&  operator<<(std::ostream& , account const&);
     
     friend class account_builder;
     static account_builder create(std::string const&, std::string const&);
 };
+
+    std::ofstream& operator<<(std::ofstream&, account const&);
