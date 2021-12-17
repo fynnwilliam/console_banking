@@ -29,8 +29,9 @@ public:
     unsigned            from()   const noexcept;
     unsigned            to()     const noexcept;
     
-    friend std::ofstream& operator<<(std::ofstream&, activity const&);
     friend std::ifstream& operator>>(std::ifstream&, activity&);
     friend std::istream&  operator>>(std::istream&,  activity&);
     friend std::ostream&  operator<<(std::ostream& , activity const&);
 };
+
+    std::ofstream& operator<<(std::ofstream&, activity const&);
