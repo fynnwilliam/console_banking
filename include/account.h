@@ -37,6 +37,14 @@ public:
     unsigned  id()                  const noexcept;
     double    balance()             const noexcept;
     
+    std::string& first_name()             noexcept;
+    std::string& last_name()              noexcept;
+    std::string& email()                  noexcept;
+    
+    account_t& type()                     noexcept;
+    unsigned&  id()                       noexcept;
+    double&    balance()                  noexcept;
+    
     void read_logs()                      noexcept;
     void write_logs()               const noexcept;
     void list_transactions()              noexcept;
