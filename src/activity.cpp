@@ -50,9 +50,9 @@ unsigned& activity::to() noexcept
 
 std::ifstream& operator>>(std::ifstream& ifs, activity& act)
 {
-    ifs >> act.amount_
-        >> act.from_
-        >> act.to_;
+    ifs >> act.amount()
+        >> act.from()
+        >> act.to();
         
     return ifs;
 }
