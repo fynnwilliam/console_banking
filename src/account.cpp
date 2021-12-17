@@ -86,6 +86,11 @@ std::string& account::email() noexcept
     return email_;
 }
 
+account_t& account::type() noexcept
+{
+    return type_;
+}
+
 void account::deposit(double amount) noexcept
 {
     balance_ += amount;
