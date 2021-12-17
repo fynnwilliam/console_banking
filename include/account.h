@@ -23,8 +23,6 @@ private:
     void type(account_t)                  noexcept;
     void id(unsigned)                     noexcept;
     void balance(double)                  noexcept;
-    void read_logs()                      noexcept;
-    void write_logs()               const noexcept;
     void no_activity()              const noexcept;
 
 public:
@@ -39,6 +37,8 @@ public:
     unsigned  id()                  const noexcept;
     double    balance()             const noexcept;
     
+    void read_logs()                      noexcept;
+    void write_logs()               const noexcept;
     void list_transactions()              noexcept;
     void deposit(double)                  noexcept;
     void withdraw(double)                 noexcept;
