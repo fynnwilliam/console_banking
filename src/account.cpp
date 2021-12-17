@@ -71,6 +71,11 @@ double account::balance() const noexcept
     return balance_;
 }
 
+std::string& account::first_name() noexcept
+{
+    return first_name_;
+}
+
 void account::deposit(double amount) noexcept
 {
     balance_ += amount;
