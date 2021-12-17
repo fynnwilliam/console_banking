@@ -96,6 +96,11 @@ unsigned& account::id() noexcept
     return id_;
 }
 
+double& account::balance() noexcept
+{
+    return balance_;
+}
+
 void account::deposit(double amount) noexcept
 {
     balance_ += amount;
