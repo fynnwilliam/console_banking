@@ -24,6 +24,30 @@ unsigned activity::to() const noexcept
    return to_;
 }
 
+activity_t& activity::name() noexcept
+{
+    return type_;
+}
+
+activity::clock_t::time_point& activity::time() noexcept
+{
+    return time_;
+}
+
+double& activity::amount() noexcept
+{
+    return amount_;
+}
+
+unsigned& activity::from() noexcept
+{
+    return from_;
+}
+unsigned& activity::to() noexcept
+{
+   return to_;
+}
+
 std::ifstream& operator>>(std::ifstream& ifs, activity& act)
 {
     ifs >> act.amount_

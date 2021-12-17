@@ -29,6 +29,12 @@ public:
     unsigned            from()   const noexcept;
     unsigned            to()     const noexcept;
     
+    activity_t&          name()        noexcept;
+    clock_t::time_point& time()        noexcept;
+    double&              amount()      noexcept;
+    unsigned&            from()        noexcept;
+    unsigned&            to()          noexcept;
+    
     friend std::ifstream& operator>>(std::ifstream&, activity&);
     friend std::istream&  operator>>(std::istream&,  activity&);
 };
