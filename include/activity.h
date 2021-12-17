@@ -31,7 +31,7 @@ public:
     
     friend std::ifstream& operator>>(std::ifstream&, activity&);
     friend std::istream&  operator>>(std::istream&,  activity&);
-    friend std::ostream&  operator<<(std::ostream& , activity const&);
 };
 
     std::ofstream& operator<<(std::ofstream&, activity const&);
+    std::ostream&  operator<<(std::ostream& , activity const&);
