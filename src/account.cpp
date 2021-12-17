@@ -159,11 +159,11 @@ std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
 
 std::ifstream& operator>>(std::ifstream& ifs, account& acc)
 {
-    ifs >> acc.id_
-        >> acc.last_name_
-        >> acc.first_name_
-        >> acc.email_
-        >> acc.balance_;
+    ifs >> acc.id()
+        >> acc.last_name()
+        >> acc.first_name()
+        >> acc.email()
+        >> acc.balance();
 
     return ifs;
 }
