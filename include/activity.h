@@ -35,9 +35,9 @@ public:
     unsigned&            from()        noexcept;
     unsigned&            to()          noexcept;
     
-    friend std::ifstream& operator>>(std::ifstream&, activity&);
     friend std::istream&  operator>>(std::istream&,  activity&);
 };
 
+    std::ifstream& operator>>(std::ifstream&, activity&);
     std::ofstream& operator<<(std::ofstream&, activity const&);
     std::ostream&  operator<<(std::ostream& , activity const&);
