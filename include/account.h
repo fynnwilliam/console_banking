@@ -37,14 +37,6 @@ public:
     unsigned  id()                  const noexcept;
     double    balance()             const noexcept;
     
-    std::string& first_name()             noexcept;
-    std::string& last_name()              noexcept;
-    std::string& email()                  noexcept;
-    
-    account_t& type()                     noexcept;
-    unsigned&  id()                       noexcept;
-    double&    balance()                  noexcept;
-    
     void read_logs()                      noexcept;
     void write_logs()               const noexcept;
     void list_transactions()              noexcept;
@@ -52,11 +44,11 @@ public:
     void withdraw(double)                 noexcept;
     bool withdrawable(double)       const noexcept;
     
+    friend std::ifstream& operator>>(std::ifstream&, account&);
     
     friend class account_builder;
     static account_builder create(std::string const&, std::string const&);
 };
 
-    std::ifstream& operator>>(std::ifstream&, account&);
     std::ofstream& operator<<(std::ofstream&, account const&);
     std::ostream&  operator<<(std::ostream& , account const&);

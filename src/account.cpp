@@ -71,36 +71,6 @@ double account::balance() const noexcept
     return balance_;
 }
 
-std::string& account::first_name() noexcept
-{
-    return first_name_;
-}
-
-std::string& account::last_name() noexcept
-{
-    return last_name_;
-}
-
-std::string& account::email() noexcept
-{
-    return email_;
-}
-
-account_t& account::type() noexcept
-{
-    return type_;
-}
-
-unsigned& account::id() noexcept
-{
-    return id_;
-}
-
-double& account::balance() noexcept
-{
-    return balance_;
-}
-
 void account::deposit(double amount) noexcept
 {
     balance_ += amount;
@@ -159,11 +129,11 @@ std::ofstream& operator<<(std::ofstream& ofs, account const& acc)
 
 std::ifstream& operator>>(std::ifstream& ifs, account& acc)
 {
-    ifs >> acc.id()
-        >> acc.last_name()
-        >> acc.first_name()
-        >> acc.email()
-        >> acc.balance();
+    ifs >> acc.id_
+        >> acc.last_name_
+        >> acc.first_name_
+        >> acc.email_
+        >> acc.balance_;
 
     return ifs;
 }
