@@ -13,6 +13,7 @@ private:
     std::mutex mtx_;
     
     database() = default;
+    database(database const&) = delete;
     void read_from_file()                       noexcept;
     void write_to_file()                  const noexcept;
 
