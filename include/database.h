@@ -14,7 +14,7 @@ private:
     
     database() = default;
     database(database const&) = delete;
-    auto operator=(database const&) = delete;
+    database& operator=(database const&) = delete;
     void read_from_file()                       noexcept;
     void write_to_file()                  const noexcept;
 
