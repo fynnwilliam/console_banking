@@ -12,7 +12,7 @@ private:
     
     id_generator(std::uint64_t i) : id_{i} {}
     id_generator(id_generator const&) = delete;
-    auto operator=(id_generator const&) = delete;
+    id_generator& operator=(id_generator const&) = delete;
     
 public:
     static id_generator& instance()      noexcept
