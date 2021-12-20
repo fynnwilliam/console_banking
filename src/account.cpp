@@ -1,4 +1,5 @@
 #include <locale>
+#include <iomanip>
 #include "account.h"
 #include "account_builder.h"
 
@@ -146,6 +147,6 @@ std::ostream& operator<<(std::ostream& os, account const& acc)
               << "\n\tlast  name: " << acc.last_name()
               << "\n\tfirst name: " << acc.first_name()
               << "\n\temail: "      << acc.email()
-              << "\n\tbalance: "    << acc.balance()
+              << "\n\tbalance: "    << std::put_money(acc.balance())
               << '\n';
 }
