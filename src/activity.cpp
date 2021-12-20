@@ -1,3 +1,4 @@
+#include <locale>
 #include "activity.h"
 
 activity_t activity::name() const noexcept
@@ -75,6 +76,7 @@ std::ofstream& operator<<(std::ofstream& ofs, activity const& act)
 
 std::ostream&  operator<<(std::ostream& os, activity const& act)
 {
+    os.imbue(std::locale());
     return os <<   "amount: "       << act.amount()
               << "\nfrom: acc_no. " << act.from()
               << "\nto: acc_no. "   << act.to()
