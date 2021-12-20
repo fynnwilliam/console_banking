@@ -1,3 +1,4 @@
+#include <locale>
 #include "account.h"
 #include "account_builder.h"
 
@@ -140,6 +141,7 @@ std::ifstream& operator>>(std::ifstream& ifs, account& acc)
 
 std::ostream& operator<<(std::ostream& os, account const& acc)
 {
+    os.imbue(std::locale());
     return os <<   "\taccount id: " << acc.id()
               << "\n\tlast  name: " << acc.last_name()
               << "\n\tfirst name: " << acc.first_name()
