@@ -1,5 +1,4 @@
 #include <locale>
-#include <iomanip>
 #include "account.h"
 #include "account_builder.h"
 
@@ -142,11 +141,11 @@ std::ifstream& operator>>(std::ifstream& ifs, account& acc)
 
 std::ostream& operator<<(std::ostream& os, account const& acc)
 {
-    os.imbue(std::locale());
+    os.imbue(std::locale("en_US.UTF-8"));
     return os <<   "\taccount id: " << acc.id()
               << "\n\tlast  name: " << acc.last_name()
               << "\n\tfirst name: " << acc.first_name()
               << "\n\temail: "      << acc.email()
-              << "\n\tbalance: "    << std::put_money(acc.balance())
+              << "\n\tbalance: "    << acc.balance()
               << '\n';
 }
