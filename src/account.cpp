@@ -19,7 +19,7 @@ void account::first_name(std::string const& f) noexcept
 
 void account::last_name(std::string const& l) noexcept
 {
-    last_name_ = std::move(l);
+    last_name_ = l;
 }
 
 void account::email(std::string const& address) noexcept
