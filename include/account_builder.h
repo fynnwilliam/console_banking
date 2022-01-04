@@ -7,7 +7,7 @@ private:
     account account_;
     
 public:
-    account_builder(std::string const&, std::string const&);
+    account_builder(std::string, std::string);
     
     operator account()                        const  noexcept
     {
