@@ -13,7 +13,7 @@ void transaction::read(std::string const& acc_id) noexcept
     std::uint64_t t_id{}; activity act{{}, {}};
     
     while (file >> t_id >> act)
-        logs_.insert({t_id, std::move(act)});
+        logs_.insert({t_id, act});
 }
 
 void transaction::write(std::string const& acc_id) const noexcept
