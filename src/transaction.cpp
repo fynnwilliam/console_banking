@@ -4,7 +4,7 @@
 
 void transaction::log(activity&& a) noexcept
 {
-    logs_.insert({++id_, std::move(a)});
+    logs_.insert({++id_, a});
 }
 
 void transaction::read(std::string const& acc_id) noexcept
