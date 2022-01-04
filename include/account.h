@@ -27,7 +27,7 @@ private:
 
 public:
     account() = default;
-    account(std::string const&, std::string const&);
+    account(std::string, std::string);
     
     std::string const& first_name() const noexcept;
     std::string const& last_name()  const noexcept;
