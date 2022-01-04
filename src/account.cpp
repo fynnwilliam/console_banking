@@ -2,7 +2,7 @@
 #include "account.h"
 #include "account_builder.h"
 
-account::account(std::string const& l, std::string const& f)
+account::account(std::string l, std::string f)
     : last_name_{std::move(l)}, first_name_{std::move(f)}
 {
 }
