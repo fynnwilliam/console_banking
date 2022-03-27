@@ -8,8 +8,8 @@ account_builder &account_builder::email(std::string address) noexcept {
   return *this;
 }
 
-account_builder &account_builder::last_name(std::string const &l) noexcept {
-  account_.last_name(l);
+account_builder &account_builder::last_name(std::string l) noexcept {
+  account_.last_name(std::move(l));
   return *this;
 }
 
