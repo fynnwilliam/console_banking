@@ -22,9 +22,9 @@ void account::last_name(std::string const& l) noexcept
     last_name_ = l;
 }
 
-void account::email(std::string const& address) noexcept
+void account::email(std::string address) noexcept
 {
-    email_ = address;
+    email_ = std::move(address);
 }
 
 void account::type(account_t t) noexcept
