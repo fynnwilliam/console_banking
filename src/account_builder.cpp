@@ -13,8 +13,8 @@ account_builder &account_builder::last_name(std::string l) noexcept {
   return *this;
 }
 
-account_builder &account_builder::first_name(std::string const &f) noexcept {
-  account_.first_name(f);
+account_builder &account_builder::first_name(std::string f) noexcept {
+  account_.first_name(std::move(f));
   return *this;
 }
 
