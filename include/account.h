@@ -15,7 +15,7 @@ private:
   std::string first_name_;
   transaction logs_;
 
-  void first_name(std::string const &) noexcept;
+  void first_name(std::string) noexcept;
   void last_name(std::string const &) noexcept;
   void email(std::string) noexcept;
   void _list_transactions() const noexcept;

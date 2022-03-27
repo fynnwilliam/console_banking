@@ -10,7 +10,7 @@ account_builder account::create(std::string const &l_name,
   return account_builder{l_name, f_name};
 }
 
-void account::first_name(std::string const &f) noexcept { first_name_ = f; }
+void account::first_name(std::string f) noexcept { first_name_ = std::move(f); }
 
 void account::last_name(std::string const &l) noexcept { last_name_ = l; }
 
