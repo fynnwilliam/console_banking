@@ -1,7 +1,7 @@
 #include "account_builder.h"
 
 account_builder::account_builder(std::string l_name, std::string f_name)
-    : account_{l_name, f_name}
+    : account_{std::move(l_name), std::move(f_name)}
 {
 }
 
