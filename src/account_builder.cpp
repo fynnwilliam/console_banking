@@ -5,9 +5,9 @@ account_builder::account_builder(std::string l_name, std::string f_name)
 {
 }
 
-account_builder& account_builder::email(std::string const& address) noexcept
+account_builder& account_builder::email(std::string address) noexcept
 {
-    account_.email(address);
+    account_.email(std::move(address));
     return *this;
 }
 
