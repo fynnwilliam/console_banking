@@ -12,7 +12,7 @@ account_builder account::create(std::string const &l_name,
 
 void account::first_name(std::string f) noexcept { first_name_ = std::move(f); }
 
-void account::last_name(std::string const &l) noexcept { last_name_ = l; }
+void account::last_name(std::string l) noexcept { last_name_ = std::move(l); }
 
 void account::email(std::string address) noexcept {
   email_ = std::move(address);
