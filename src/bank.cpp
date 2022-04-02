@@ -119,7 +119,7 @@ std::string bank::first_name() const noexcept {
 }
 
 std::string bank::last_name() const noexcept {
-  return std::move(request("last name"));
+  return request("last name");
 }
 
 std::string bank::email() const noexcept {
