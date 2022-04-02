@@ -1,8 +1,3 @@
 #pragma once
 
-enum class activity_t
-{
-    received,
-    sent,
-    withdrew
-};
+enum class activity_t { received, sent, withdrew };
