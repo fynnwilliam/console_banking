@@ -124,9 +124,9 @@ std::string bank::last_name() const noexcept {
 
 std::string bank::email() const noexcept {
   std::regex pattern{"(\\w+)(\\.|_)?(\\w+)@(\\w+)(\\.(\\w+))+"};
-  std::string &input{request("valid email address")};
+  std::string input{request("valid email address")};
 
-  return std::regex_match(input, pattern) ? std::move(input) : email();
+  return std::regex_match(input, pattern) ? input : email();
 }
 
 int bank::option() const noexcept {
