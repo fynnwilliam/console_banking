@@ -227,12 +227,12 @@ void bank::deliver(int option) noexcept
 {
     switch (option)
     {
-        case 1: open_account();      break;
-        case 2: check_balance();     break;
-        case 3: deposit();           break;
-        case 4: withdraw();          break;
-        case 5: close_account();     break;
-        case 6: list_accounts();     break;
-        case 7: list_transactions(); break;
+        case 1: return open_account();
+        case 2: return check_balance();
+        case 3: return deposit();
+        case 4: return withdraw();
+        case 5: return close_account();
+        case 6: return list_accounts();
+        case 7: return list_transactions();
     }
 }
