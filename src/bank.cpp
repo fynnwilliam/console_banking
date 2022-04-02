@@ -136,7 +136,7 @@ int bank::option() const noexcept {
 }
 
 std::string bank::request(std::string statement) const noexcept {
-  static std::string input{};
+  std::string input{};
   std::cout << statement << ": ";
   std::getline(std::cin, input);
 
