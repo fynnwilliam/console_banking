@@ -46,7 +46,7 @@ public:
   friend std::ifstream &operator>>(std::ifstream &, account &);
 
   friend class account_builder;
-  static account_builder create(std::string const &, std::string const &);
+  static account_builder create(std::string, std::string);
 };
 
 std::ofstream &operator<<(std::ofstream &, account const &);

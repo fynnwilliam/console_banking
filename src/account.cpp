@@ -5,9 +5,8 @@
 account::account(std::string l, std::string f)
     : last_name_{std::move(l)}, first_name_{std::move(f)} {}
 
-account_builder account::create(std::string const &l_name,
-                                std::string const &f_name) {
-  return account_builder{l_name, f_name};
+account_builder account::create(std::string l_name, std::string f_name) {
+  return account_builder{std::move(l_name), std::move(f_name)};
 }
 
 void account::first_name(std::string f) noexcept { first_name_ = std::move(f); }
