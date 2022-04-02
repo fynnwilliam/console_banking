@@ -12,6 +12,7 @@ private:
   double amount() const noexcept;
   int option() const noexcept;
 
+  void show_options() const noexcept;
   void list_accounts() const noexcept;
   void list_transactions() const noexcept;
   void check_balance() const noexcept;
