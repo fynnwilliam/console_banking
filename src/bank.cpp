@@ -115,7 +115,7 @@ double bank::amount() const noexcept {
 }
 
 std::string bank::first_name() const noexcept {
-  return std::move(request("first name"));
+  return request("first name");
 }
 
 std::string bank::last_name() const noexcept {
