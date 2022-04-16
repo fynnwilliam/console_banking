@@ -21,4 +21,9 @@ target_link_libraries(bank_ PUBLIC account_builder)
 
 add_executable(bank main.cpp)
 target_link_libraries(bank PUBLIC database bank_)
-target_compile_options(bank PRIVATE -O3 -pedantic-errors)
+
+if(MSVC)
+  target_compile_options(bank PRIVATE /O2 /W4)
+else()
+  target_compile_options(bank PRIVATE -O3 -pedantic-errors)
+endif()
